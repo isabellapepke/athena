@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
 
+#include "TreeNode.h"
+
 using namespace std;
 
-template<clas T>
+template<class T>
 
 class BST
 {
@@ -12,9 +14,10 @@ public:
 	~BST();
 
 	void insert(T value);
-	bool delete(T value);
-	bool contains(T value);//find/serach method
-	TreeNode<T>* getMax();//get right most nodes
+	bool remove(T k);
+	bool contains(T k);//find/serach method
+	//TreeNode<T>* getMax();//get right most nodes
+	T getMax();
 private:
 	TreeNode<T>* root;
 
@@ -30,22 +33,31 @@ template <typename T>
 BST<T>::~BST()
 {
 	//iterate and delete
-	//linear
+	//linear runtime 
 }
 
 template <typename T>
-TreeNode<T>* BST::getMax()
+//TreeNode<T>* BST<T>::getMax() //does not need to be recursive 
+T BST<T>::getMax()
 {
-	TreeNode<T>* current = root;//start at root
+	//need to traverse the tree 
 
+	TreeNode<T>* current = root; //the root is never going to move but the current will
+
+	//checks
 	if(root == NULL)
+	{
 		return NULL;
-	while(current->right !=NULL)
+	}
+	while(current->right != NULL)
 	{
 		current = current->right;
 	}
+	//return &(current->key); //or just return current;
+	
+	return current->key;
+	//cout << "in get max in BST " << endl;
 
-	return &(current->key); //or return(current); maybe with templates might require the first one who knows
 }
 
 template <typename T>
@@ -90,84 +102,83 @@ void BST<T>::insert(T value)
 }
 
 template <typename T>
-bool BST<T>::contains(T key)
+bool BST<T>::contains(T k)
 {
-	if(root==NULL)
+
+	if(root == NULL)
 	{
-		return false
+		return false;
 	}
+
 	else
 	{
-		TreeNode<T>* node = root;
-
-		while(current->key !=NULL)
+		//need to traverse the tree
+		TreeNode<T>* current = root; 
+		while(current->key != NULL)
 		{
-			//determine whetehr lef to or right
-			if(k<current->key)
+			if(k < current->key) //go left
 			{
-				//go left
-				current->left;
+				current = current->left;
 			}
 			else
 			{
-				current->right;
+				current = current->right;
 			}
-			if(current==NULL)
+			if(current == NULL) //we didnt find the value we were looking for 
 			{
-				//didnt find it
 				return false;
 			}
 		}
 	}
-	return true;
+	return true; 
 }
+
 
 //DELETE: 0 childs(leaf), 1 child(left or right), 2 childs
 template <typename T>
-bool BST<T>::delete(int k)
+bool BST<T>::remove(T k)
 {
-	if(root ==NULL)
+	if(root == NULL) //empty tree 
 	{
-		return false;//empyt tree nothing to delete
+		return false;
 	}
-	else
-	{//partent to null out pointers, when you serach you can return a pointer to that node
 
 
-		TreeNode<T>* current = root;
-		TreeNode<T>* parent = NULL;
-		bool isLeft = true;
-		while(current->key != k)
+	TreeNode<T>* current = root;
+	TreeNode<T>* parent = root; //or equal to NULL, doesnt matter 
+	bool isLeft = true;
+	
+	//lets search for value we are looking for 
+
+
+	while(current->key != k)
+	{
+		parent = current;
+		if(k < current->key)
 		{
-			parent = current;
-		}
-
-		if(k< current->key)
-		{
-
+			isLeft = true;
+			current = current->left;
 		}
 		else
 		{
 			isLeft = false;
+			current = current->right;
 		}
 
-		if(current == NULL)//key DNE
+		if(current == NULL) //key does not exist 
 		{
 			return false;
 		}
 	}
-	//we found what we are looking for
-	
-	//case for 0 children
+	 //we found what we are looking for 
 
-	if((current->left ==NULL) && (current->right==NULL))
+	//case for 0 children 
+	if(current->left == NULL && current->right == NULL) //means it is a leaf node 
 	{
-		//we need to check if that current is the root
 		if(current == root)
 		{
 			root = NULL;
 		}
-		//now right and left nullment
 		else if(isLeft)
 		{
 			parent->left = NULL;
@@ -178,25 +189,25 @@ bool BST<T>::delete(int k)
 		}
 	}
 
-	//case for 1 child, need to check if its a right or lfet child
-
-	else if(current->right == NULL)//left child
+//node with 1 child 
+	else if(current->right == NULL) //left child 
 	{
-		if (current==root)
+		if(current == root)
 		{
-			root = current->left;
+			root= current->left;
 		}
 		else if(isLeft)
 		{
-			parent->left = current->left;//nulled out the child
+			parent->left = current->left;
 		}
 
 		else
 		{
-			parent->right = current->left;//nulled out the child
+			parent->right = current->left;
 		}
 	}
-	else if(current->left == NULL)//right childe
+
+	else if(current->left == NULL)//right child
 	{
 		if (current==root)
 		{
@@ -206,7 +217,6 @@ bool BST<T>::delete(int k)
 		{
 			parent->left = current->right;//nulled out the child
 		}
-
 		else
 		{
 			parent->right = current->right;//nulled out the child

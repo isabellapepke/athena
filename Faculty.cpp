@@ -1,24 +1,46 @@
 #include <iostream>
 #include <string>
+#include "Faculty.h"
 
 using namespace std;
 Faculty::Faculty()
 {
-	studID = 0;
-	facultyID = 0;
-	major = "default";
-	year = 0;
-	gpa = 0.1;
+	
 	name = "default";
+	job = "default";
+	department = "default";
+	facultyID = 0;
 
 }
 
-Faculty::Faculty(string nameInput, string jobInput, string departmentInput, int facultyIDInput, list listInput)
+Faculty::Faculty(string nameInput, string jobInput, string departmentInput, int facultyIDInput, list<int> listInput)
 {
-	studID = studIDInput;
-	facultyID = facultyIDInput;
-	major = majorInput;
-	year = yearInput;
-	gpa = gpaInput;
 	name = nameInput;
+	facultyID = facultyIDInput;
+	department = departmentInput;
+	adviseesIDs  = listInput;
+	job = jobInput;
+	
+}
+Faculty::~Faculty()
+{
+
+}
+/*void printFaculty();
+	void printFacultyAdvisees();
+	void addAdvisee();*/
+void Faculty::printAdviseesList()
+{
+	
+	for(auto i = adviseesIDs.begin(); i != adviseesIDs.end(); ++i) 
+	{
+    	//cout<<i.print
+   	}
+		
+}
+void Faculty::printFaculty()
+{
+	cout<<"Faculty:\n\tName: "<<name<<"\n\tFaculty ID: "<<facultyID<<"\n\tDepartment: "<<department<<"\n\tJob: "<<job<<endl;
+	cout<<"\tList of advisees"<<endl;
+	//call printAdvisees list
 }

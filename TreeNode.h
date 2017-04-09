@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <ctime>
+#include <cstdlib>
+
 
 using namespace std; 
 
@@ -9,13 +12,14 @@ class TreeNode
 {
 public: 
 	TreeNode();
-	TreeNode(T key);//overloaded 
+	TreeNode(T data);//overloaded 
 	//virtual ~TreeNode();//can define this later; polymorphism  
 	~TreeNode();
 
-	T key;
+	T data;//going to be student or faculty object
 	TreeNode<T>* left;
 	TreeNode<T>* right;
+	int key;//going to be a random key
 
 
 };
@@ -33,5 +37,13 @@ TreeNode<T>::TreeNode(T k)
 {
 	left = NULL;
 	right = NULL;
-	key = k;
+	data = k;
+	srand(time(NULL));
+	key = rand();
+
 }
+
+//every time we make an object we are going to use a random key
+
+
+

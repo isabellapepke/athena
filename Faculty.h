@@ -16,6 +16,8 @@ public:
 	void addAdvisee();
 	void printAdviseesList();
 	int getID();
+	friend bool operator<(Faculty &s1,  Faculty &s2);
+
 private:
 	string name, job, department;
 	int facultyID;

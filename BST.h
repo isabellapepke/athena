@@ -18,8 +18,8 @@ public:
 	bool contains(T k);//find/serach method
 	//TreeNode<T>* getMax();//get right most nodes
 	T find(T k);
-	T getMax();
-	T getMin();
+	int getMax();
+	int getMin();
 
 private:
 	TreeNode<T>* root;
@@ -42,7 +42,7 @@ BST<T>::~BST()
 
 template <typename T>
 //TreeNode<T>* BST<T>::getMax() //does not need to be recursive 
-T BST<T>::getMax()
+int BST<T>::getMax()
 {
 	//need to traverse the tree 
 
@@ -51,7 +51,7 @@ T BST<T>::getMax()
 	//checks
 	if(root == NULL)
 	{
-		return NULL;
+		return 0;
 	}
 	while(current->right != NULL)
 	{
@@ -66,14 +66,14 @@ T BST<T>::getMax()
 
 
 template <typename T>
-T BST<T>::getMin()
+int BST<T>::getMin()
 {
 	TreeNode<T>* current = root;
 
 	//checks
 	if(root == NULL)
 	{
-		return NULL;
+		return 0;
 	}
 	while(current->left != NULL)
 	{

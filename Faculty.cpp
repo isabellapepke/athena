@@ -27,6 +27,11 @@ Faculty::~Faculty()
 {
 
 }
+
+bool operator< ( Faculty &f1,  Faculty &f2)
+{
+ 	return f1.getID()<f2.getID();
+}
 /*void printFaculty();
 	void printFacultyAdvisees();
 	void addAdvisee();*/

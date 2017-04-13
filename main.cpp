@@ -18,5 +18,7 @@ int main()
 	BST<Student> studentBST;
 	studentBST.insert(b);
 
+	studentBST.remove();
+
 
 }

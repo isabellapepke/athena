@@ -22,6 +22,9 @@ Student::~Student()
 
 Student::Student(int studIDInput, int facultyIDInput, string majorInput, string yearInput, string nameInput, double gpaInput)//overloaded
 {
+
+	//keep input in here 
+
 	studID = studIDInput;
 	facultyID = facultyIDInput;
 	major = majorInput;
@@ -58,12 +61,3 @@ int Student::getID()
 
  }*/
 
-
-/*
-void Student::UserInput()
-{
-	cout << "What is the name of the Student? " <<endl;
-	string example;
-	cin >> example;
-}
-*/

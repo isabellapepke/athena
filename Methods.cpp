@@ -2,9 +2,12 @@
 #include <string>
 
 #include "Methods.h"
-#include "Student.h"
 
 using namespace std;
+
+
+
+
 
 /*
 
@@ -17,8 +20,11 @@ void Methods::StudentInOrder(Student n)
 		StudentInOrder(n->right);
 	}
 }
+*/
 
 
+
+/*
 void Methods::FacultyInOrder(Faculty n)
 {
 	if(n != NULL)
@@ -53,6 +59,9 @@ void Methods::createStudents()
 	Student a(studentIDInput, facultyIDInput, majorInput, yearInput, nameInput, gpaInput);
 
 	a.printStudent();
+
+	studentBST.insert(a); //adding the student to the BST
+
 }
 
 
@@ -87,16 +96,14 @@ void Methods::createFaculty()
 	Faculty f(fNameInput, jobInput, departmentInput, facultyIDInput, students);
 	f.printFaculty();
 
+	facultyBST.insert(f); //adding the faculty to the BST
+
 }
 
 
 
 
-
-//Faculty::Faculty(string nameInput, string jobInput, string departmentInput, int facultyIDInput, list<int> listInput)
-
-
-
+/*
 
 void Methods::printMenu()
 {
@@ -113,7 +120,6 @@ void Methods::printMenu()
 
 	}
 	
-	
 	else if (choice == 2)
 	{
 		createFaculty();
@@ -126,4 +132,51 @@ void Methods::printMenu()
 	}
 }
 
+*/
+
+
+void Methods::menuOptions()
+{
+	//can do if else statements for all options that will call other funcctions
+	cout << "1. Print all STUDENTS and their information. " <<endl;
+	cout << "2. Print all FACULTY and their information. " <<endl; 
+	cout << "3. Find and display students information given students ID" <<endl; //will prompt for student ID in aother fucntion
+	cout << "4. Find and display faculty information given faculty ID" << endl;
+	cout << "5. Given a student's ID, print name and info of their advisor " <<endl;
+	cout << "6. Given a faculty ID, print ALL names & info of their students" <<endl;
+	cout << "7. Add a new Student" <<endl; //call create student in methods
+	cout << "8. Delete a student, Give the ID " << endl;
+	cout << "9. Add a new faculty member" << endl;
+	cout << "10. Delete a faculty member given the ID " <<endl;
+	cout << "11. Change a student's advisor given Student ID and new faculty ID" <<endl;
+	cout << "12. Remove an advisee from a faculty member given ID" <<endl;
+	cout << "13. Rollback" <<endl;
+	cout << "14. Exit" << endl <<endl; 
+
+	cout << "Please enter which option you would like (a number): " <<endl;
+		string answer;
+	cin >> answer;
+
+	int choice = atoi(answer.c_str());
+
+
+	if (choice == 7)
+	{
+		createStudents(); 
+
+	}
+	
+	else if (choice == 9)
+	{
+		createFaculty();
+	}
+	
+	else
+	{
+		cout << "You did not enter what we wanted" <<endl;
+		//break;
+	}
+
+
+}
 

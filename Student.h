@@ -17,6 +17,7 @@ public:
 	void printStudentAndAdvisor(int studIDInput);
 	void changeAdvisor(int facultyIDInput);//will need to do this on a student in the bst
 	int getID();
+	friend bool operator< ( Student &s1,  Student &s2);
 
 private:
 	int studID, facultyID;

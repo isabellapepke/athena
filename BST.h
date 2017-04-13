@@ -18,16 +18,16 @@ public:
 	~BST();
 
 	void insert(T value);
-	bool remove(T k);
+	bool remove(int k);
 	bool contains(T k);//find/serach method
 	//TreeNode<T>* getMax();//get right most nodes
-	T find(T k);
-	T getMax();
-	T getMin();
+	T find(int id);//finds the student according to its id
+
+	int getMax();
+	int getMin();
 	//void InOrder(TreeNode<T> key)
 
 	TreeNode<T> *getSuccessor(TreeNode<T> *d);
-
 
 private:
 	TreeNode<T>* root;
@@ -50,7 +50,7 @@ BST<T>::~BST()
 
 template <typename T>
 //TreeNode<T>* BST<T>::getMax() //does not need to be recursive 
-T BST<T>::getMax()
+int BST<T>::getMax()
 {
 	//need to traverse the tree 
 
@@ -59,7 +59,7 @@ T BST<T>::getMax()
 	//checks
 	if(root == NULL)
 	{
-		return NULL;
+		return 0;
 	}
 	while(current->right != NULL)
 	{
@@ -74,14 +74,14 @@ T BST<T>::getMax()
 
 
 template <typename T>
-T BST<T>::getMin()
+int BST<T>::getMin()
 {
 	TreeNode<T>* current = root;
 
 	//checks
 	if(root == NULL)
 	{
-		return NULL;
+		return 0;
 	}
 	while(current->left != NULL)
 	{
@@ -167,18 +167,18 @@ bool BST<T>::contains(T k)
 }
 
 
-
+//key is id
 template<typename T>
-T BST<T>::find(T k)
+T BST<T>::find(int id)
 {
 	TreeNode<T> *current = root;
-	while (current->k != NULL)
+	while (current->key != NULL)
 	{
-		if (k > current->key)
+		if (id > current->key)
 		{
 			current = current->right;
 		} 
-		else if (k < current->key)
+		else if (id < current->key)
 		{
 			current = current->left;
 		} 
@@ -187,7 +187,7 @@ T BST<T>::find(T k)
 			break;
 		}
 	}
-	return current->key;
+	return current->value;
 }
 
 
@@ -197,8 +197,9 @@ T BST<T>::find(T k)
 
 
 //DELETE: 0 childs(leaf), 1 child(left or right), 2 childs
+//enters in an ID to remove, current->key is ID
 template <typename T>
-bool BST<T>::remove(T k)
+bool BST<T>::remove(int k)
 {
 	if(root == NULL) //empty tree 
 	{
@@ -249,6 +250,8 @@ bool BST<T>::remove(T k)
 		{
 			parent->right = NULL;
 		}
+		cout<<"DELETED WITH 0 CHILDREN"<<endl;
+
 	}
 
 //node with 1 child 
@@ -267,6 +270,8 @@ bool BST<T>::remove(T k)
 		{
 			parent->right = current->left;
 		}
+		cout<<"DELETED WITH 1 CHILDREN"<<endl;
+
 	}
 
 	else if(current->left == NULL)//right child
@@ -283,6 +288,8 @@ bool BST<T>::remove(T k)
 		{
 			parent->right = current->right;//nulled out the child
 		}
+		cout<<"DELETED WITH 1 CHILDREN right"<<endl;
+
 	}
 
 
@@ -304,8 +311,9 @@ bool BST<T>::remove(T k)
 		}
 
 		successor->left = current->left;
-	}
+		cout<<"DELETED WITH TWO CHILDREN"<<endl;
 
+	}
 	return true;
 }
 

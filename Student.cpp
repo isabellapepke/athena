@@ -40,3 +40,7 @@ void Student::changeAdvisor(int facultyIDInput)
 	facultyID = facultyIDInput;
 }
 
+int Student::getID()
+{
+	return studID;
+}

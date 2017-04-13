@@ -61,7 +61,7 @@ void Methods::createFaculty()
 {
 	string fNameInput, jobInput, departmentInput;
 	int facultyIDInput;
-	list<int> students;
+	list<int> adviseesListInput;
 
 	cout << "Enter Faculty name:  " <<endl;
 	cin >> fNameInput;
@@ -72,24 +72,29 @@ void Methods::createFaculty()
 	cout << "Enter faculty ID number: " <<endl;
 	cin >> facultyIDInput;
 
-	cout << "How many students is the Faculty and advisor for? " << endl;
-	int i;
-	int val;
+	cout << "How many students is the Faculty an advisor for (how many students will you add this faculty as their advisor)?" << endl;
+	int i;//how many ids they are entering
+	int idInput;//student id input
 	cin>> i;
 	for( int j = 0; j < i; ++ j)
 	{
 		cout<< "Student ID number: " <<endl;
 
-		cin>> val;
-		 students.push_back(val);
+		cin>> idInput;
+		adviseesListInput.push_back(idInput);
 	}
+	cout<<"Done entering advisees to the Faculty person"<<endl;
 
-	Faculty f(fNameInput, jobInput, departmentInput, facultyIDInput, students);
+	Faculty f(fNameInput, jobInput, departmentInput, facultyIDInput, adviseesListInput);
 	f.printFaculty();
 
 }
 
-
+void Methods::printAdvisees(int facultyIDInput)
+{
+	//Faculty tempF = new Faculty(facultyBST.find(facultyIDInput));
+	//lint<int> tempAL = tempF.getAdviseesList();
+}
 
 
 

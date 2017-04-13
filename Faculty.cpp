@@ -19,7 +19,7 @@ Faculty::Faculty(string nameInput, string jobInput, string departmentInput, int 
 	name = nameInput;
 	facultyID = facultyIDInput;
 	department = departmentInput;
-	adviseesIDs  = listInput;
+	adviseesList  = listInput;
 	job = jobInput;
 	
 }
@@ -44,7 +44,7 @@ bool operator< ( Faculty &f1,  Faculty &f2)
 void Faculty::printAdviseesList()
 {
 	
-	for(auto i = adviseesIDs.begin(); i != adviseesIDs.end(); ++i) 
+	for(auto i = adviseesList.begin(); i != adviseesList.end(); ++i) 
 	{
     	cout<<i.print
    	}
@@ -53,6 +53,10 @@ void Faculty::printAdviseesList()
 
 */
 
+list<int> Faculty::getAdviseesList()
+{
+	return adviseesList;
+}
 
 void Faculty::printFaculty()
 {

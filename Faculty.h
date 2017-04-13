@@ -16,11 +16,12 @@ public:
 	void addAdvisee();
 	void printAdviseesList();
 	int getID();
+	list<int> getAdviseesList();
 	friend bool operator<(Faculty &s1,  Faculty &s2);
 
 private:
 	string name, job, department;
 	int facultyID;
-	list<int> adviseesIDs;
+	list<int> adviseesList;
 };
 #endif

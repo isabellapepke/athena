@@ -15,6 +15,6 @@ public:
 	void printMenu();
 	void createStudents();
 	void createFaculty();
-
+	void printAdvisees(int facultyIDInput);
 
 };

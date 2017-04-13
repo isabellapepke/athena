@@ -1,3 +1,8 @@
+#ifndef STUDENT_H
+#define STUDENT_H
+
+
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -18,3 +23,6 @@ private:
 	string major, year, name;
 	double gpa;
 };
+
+
+#endif

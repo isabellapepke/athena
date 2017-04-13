@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <fstream>
+
 #include "Student.h"
 using namespace std;
 
@@ -18,14 +20,14 @@ Student::~Student()
 
 }
 
-Student::Student(int studIDInput, int facultyIDInput, string majorInput, string yearInput, string nameInput, double gpaInput)
+Student::Student(int studIDInput, int facultyIDInput, string majorInput, string yearInput, string nameInput, double gpaInput)//overloaded
 {
 	studID = studIDInput;
 	facultyID = facultyIDInput;
 	major = majorInput;
 	year = yearInput;
-	gpa = gpaInput;
 	name = nameInput;
+	gpa = gpaInput;
 
 }
 
@@ -40,7 +42,19 @@ void Student::changeAdvisor(int facultyIDInput)
 	facultyID = facultyIDInput;
 }
 
+
 int Student::getID()
 {
 	return studID;
 }
+
+
+
+/*
+void Student::UserInput()
+{
+	cout << "What is the name of the Student? " <<endl;
+	string example;
+	cin >> example;
+}
+*/

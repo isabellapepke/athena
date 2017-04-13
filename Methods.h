@@ -10,11 +10,16 @@ using namespace std;
 class Methods
 {
 public:
-	//void StudentInOrder(Student n); 
+	//void StudentInOrder(T value); 
 	//void FacultyInOrder(Faculty n)
-	void printMenu();
+	void menuOptions();
 	void createStudents();
 	void createFaculty();
 	void printAdvisees(int facultyIDInput);
+
+private:
+
+	BST<Student> studentBST; //creating the student BST
+	BST<Faculty> facultyBST; //creating the faculty BST
 
 };

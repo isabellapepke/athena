@@ -27,6 +27,8 @@ public:
 	int getMin();
 	//void InOrder(TreeNode<T> key)
 
+	void inOrder(TreeNode<T> *current);
+
 	TreeNode<T> *getSuccessor(TreeNode<T> *d);
 
 private:
@@ -292,7 +294,6 @@ bool BST<T>::remove(int k)
 
 	}
 
-
 //two children 
 	else
 	{
@@ -345,21 +346,17 @@ TreeNode<T> *BST<T>::getSuccessor(TreeNode<T> *d) //node to be deleted
 
 
 
-
-/*
-
 template <typename T>
-void BST<T>::InOrder(TreeNode<T> key)
+void BST<T>::inOrder(TreeNode<T> *current) 
 {
-	if(n != NULL)
+	if (current != NULL)
 	{
-		InOrder(key->left);
-		cout<< key-> data <<endl;//access each object's method 
-		InOrder(key->right);
+		inOrder(current->left);
+		cout << current->key <<endl;
+		inOrder(current->right);
 	}
-}
+} 
 
-*/
 
 
 

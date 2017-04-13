@@ -23,5 +23,7 @@ int main()
 	cout<<studentBST.getMin();
 	studentBST.remove(3434);
 
+	studentBST.remove();
+
 
 }

@@ -29,15 +29,25 @@ Faculty::~Faculty()
 /*void printFaculty();
 	void printFacultyAdvisees();
 	void addAdvisee();*/
+
+
+
+
+//Need to finsih code to print advisee list 
+/*
 void Faculty::printAdviseesList()
 {
 	
 	for(auto i = adviseesIDs.begin(); i != adviseesIDs.end(); ++i) 
 	{
-    	//cout<<i.print
+    	cout<<i.print
    	}
 		
 }
+
+*/
+
+
 void Faculty::printFaculty()
 {
 	cout<<"Faculty:\n\tName: "<<name<<"\n\tFaculty ID: "<<facultyID<<"\n\tDepartment: "<<department<<"\n\tJob: "<<job<<endl;

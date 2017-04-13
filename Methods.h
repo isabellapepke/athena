@@ -10,6 +10,11 @@ using namespace std;
 class Methods
 {
 public:
-	void StudentInOrder(Student n); 
-	void FacultyInOrder(Faculty n)
+	//void StudentInOrder(Student n); 
+	//void FacultyInOrder(Faculty n)
+	void printMenu();
+	void createStudents();
+	void createFaculty();
+
+
 };

@@ -1,3 +1,8 @@
+#ifndef TREENODE_H
+#define TREENODE_H
+
+
+
 #include <iostream>
 #include <string>
 #include <ctime>
@@ -37,7 +42,6 @@ TreeNode<T>::TreeNode()
 template<typename T>
 TreeNode<T>::TreeNode(T k)
 {
-
 	this->left = NULL;
 	this->right = NULL;
 	this->value = k;
@@ -49,3 +53,4 @@ TreeNode<T>::TreeNode(T k)
 
 
 
+#endif

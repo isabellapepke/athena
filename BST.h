@@ -1,3 +1,7 @@
+#ifndef BST_H
+#define BST_H
+
+
 #include <iostream>
 #include <string>
 
@@ -18,8 +22,12 @@ public:
 	bool contains(T k);//find/serach method
 	//TreeNode<T>* getMax();//get right most nodes
 	T find(T k);
+
 	int getMax();
 	int getMin();
+	//void InOrder(TreeNode<T> key)
+
+	TreeNode<T> *getSuccessor(TreeNode<T> *d);
 
 private:
 	TreeNode<T>* root;
@@ -101,6 +109,7 @@ void BST<T>::insert(T value)
 		{
 			parent = current;
 			//check left or right
+
 			if((node->key)<(current->key)) //need to be able to check the Student ID number to see whether to go left or right
 			{
 				current = current->left;
@@ -121,6 +130,7 @@ void BST<T>::insert(T value)
 
 			}
 		}
+
 	}
 }
 
@@ -162,7 +172,7 @@ template<typename T>
 T BST<T>::find(T k)
 {
 	TreeNode<T> *current = root;
-	while (current->key != NULL)
+	while (current->k != NULL)
 	{
 		if (k > current->key)
 		{
@@ -275,7 +285,74 @@ bool BST<T>::remove(T k)
 		}
 	}
 
+
+//two children 
+	else
+	{
+		TreeNode<T>* successor = getSuccessor(current);
+		if(current == root)
+		{
+			root = successor;
+		}
+		else if(isLeft)
+		{
+			parent->left = successor;
+		}
+		else
+		{
+			parent->right = successor;
+		}
+
+		successor->left = current->left;
+	}
+
+	return true;
 }
 
 
 
+template <typename T>
+TreeNode<T> *BST<T>::getSuccessor(TreeNode<T> *d) //node to be deleted 
+{
+
+	TreeNode<T>* sp = d; //successor parent
+	TreeNode<T>* successor = d; //shouold be one right and all the way to the left
+	TreeNode<T>* current = d->right; 
+
+	while(current != NULL)
+	{
+		sp = successor;
+		successor = current;
+		current = current->left;
+	}
+
+	if(successor != d->right)//descendant of the right child 
+	{
+		sp->left = successor->right;
+		successor->right = d->right; 
+	}
+
+	return successor;
+}
+
+
+
+
+/*
+
+template <typename T>
+void BST<T>::InOrder(TreeNode<T> key)
+{
+	if(n != NULL)
+	{
+		InOrder(key->left);
+		cout<< key-> data <<endl;//access each object's method 
+		InOrder(key->right);
+	}
+}
+
+*/
+
+
+
+#endif 

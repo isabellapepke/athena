@@ -4,6 +4,7 @@
 #include "Student.h"
 #include "Faculty.h"
 #include "BST.h"
+#include "Methods.h"
 
 using namespace std;
 
@@ -19,11 +20,20 @@ int main()
 	BST<Student> studentBST;
 	studentBST.insert(b);
 	studentBST.insert(c);
-	cout<<studentBST.getMax()<<endl;
-	cout<<studentBST.getMin();
+	cout<< "Max value is: " << studentBST.getMax()<<endl;
+	cout<< "Min value is: " << studentBST.getMin()<<endl;
 	studentBST.remove(3434);
+	
 
-	studentBST.remove();
+	Methods newMethod;
+	newMethod.menuOptions();
+	//studentBST.inOrder(); //need to order student ID 
 
+	//studentBST.remove();
 
+ 	return 0;
 }
+
+
+
+

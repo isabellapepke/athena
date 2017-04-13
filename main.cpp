@@ -21,6 +21,7 @@ int main()
 	studentBST.insert(c);
 	cout<<studentBST.getMax()<<endl;
 	cout<<studentBST.getMin();
+	studentBST.remove(3434);
 
 
 }

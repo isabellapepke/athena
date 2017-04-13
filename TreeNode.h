@@ -1,3 +1,8 @@
+#ifndef TREENODE_H
+#define TREENODE_H
+
+
+
 #include <iostream>
 #include <string>
 #include <ctime>
@@ -38,8 +43,6 @@ TreeNode<T>::TreeNode(T k)
 	left = NULL;
 	right = NULL;
 	data = k;
-	srand(time(NULL));
-	key = rand();
 
 }
 
@@ -47,3 +50,4 @@ TreeNode<T>::TreeNode(T k)
 
 
 
+#endif

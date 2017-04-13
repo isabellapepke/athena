@@ -1,3 +1,7 @@
+#ifndef BST_H
+#define BST_H
+
+
 #include <iostream>
 #include <string>
 
@@ -13,13 +17,14 @@ public:
 	BST();
 	~BST();
 
-	void insert(T* value);
+	void insert(T value);
 	bool remove(T k);
 	bool contains(T k);//find/serach method
 	//TreeNode<T>* getMax();//get right most nodes
 	T find(T k);
 	T getMax();
 	T getMin();
+	//void InOrder(TreeNode<T> key)
 
 private:
 	TreeNode<T>* root;
@@ -85,7 +90,7 @@ T BST<T>::getMin()
 
 
 template <typename T>
-void BST<T>::insert(T* value)
+void BST<T>::insert(T value)
 {
 	TreeNode<T>* node = new TreeNode<T>(value);
 	//check if its empty or not
@@ -101,7 +106,7 @@ void BST<T>::insert(T* value)
 		{
 			parent = current;
 			//check left or right
-			if((value->key)<(current->key)) //need to be able to check the Student ID number to see whether to go left or right
+			if(value<current->key)
 			{
 				current = current->left;
 				if(current == NULL)
@@ -121,6 +126,7 @@ void BST<T>::insert(T* value)
 
 			}
 		}
+
 	}
 }
 
@@ -162,7 +168,7 @@ template<typename T>
 T BST<T>::find(T k)
 {
 	TreeNode<T> *current = root;
-	while (current->key != NULL)
+	while (current->k != NULL)
 	{
 		if (k > current->key)
 		{
@@ -279,3 +285,21 @@ bool BST<T>::remove(T k)
 
 
 
+/*
+
+template <typename T>
+void BST<T>::InOrder(TreeNode<T> key)
+{
+	if(n != NULL)
+	{
+		InOrder(key->left);
+		cout<< key-> data <<endl;//access each object's method 
+		InOrder(key->right);
+	}
+}
+
+*/
+
+
+
+#endif 

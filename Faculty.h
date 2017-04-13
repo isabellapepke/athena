@@ -1,3 +1,5 @@
+#ifndef FACULTY_H
+#define FACULTY_H
 #include <iostream>
 #include <string>
 #include <list>
@@ -19,3 +21,4 @@ private:
 	int facultyID;
 	list<int> adviseesIDs;
 };
+#endif

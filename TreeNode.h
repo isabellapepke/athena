@@ -2,7 +2,8 @@
 #include <string>
 #include <ctime>
 #include <cstdlib>
-
+#include "Student.h"
+#include "Faculty.h"
 
 using namespace std; 
 
@@ -12,7 +13,7 @@ class TreeNode
 {
 public: 
 	TreeNode();
-	TreeNode(T data);//overloaded 
+	TreeNode(T k);//overloaded 
 	//virtual ~TreeNode();//can define this later; polymorphism  
 	~TreeNode();
 
@@ -40,7 +41,7 @@ TreeNode<T>::TreeNode(T k)
 	this->left = NULL;
 	this->right = NULL;
 	this->value = k;
-	this->key = k.getID;
+	this->key = k.getID();
 
 }
 

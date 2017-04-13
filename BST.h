@@ -13,7 +13,7 @@ public:
 	BST();
 	~BST();
 
-	void insert(T* value);
+	void insert(T value);
 	bool remove(T k);
 	bool contains(T k);//find/serach method
 	//TreeNode<T>* getMax();//get right most nodes
@@ -85,9 +85,9 @@ T BST<T>::getMin()
 
 
 template <typename T>
-void BST<T>::insert(T* value)
+void BST<T>::insert(T value)
 {
-	TreeNode<T>* node = new TreeNode<T>(value);
+	TreeNode<T> *node = new TreeNode<T>(value);
 	//check if its empty or not
 	if(root == NULL)
 	{
@@ -95,13 +95,13 @@ void BST<T>::insert(T* value)
 	}
 	else//non empty tree, a failed search first null
 	{
-		TreeNode<T>* current = root;
-		TreeNode<T>* parent;
+		TreeNode<T> *current = root;
+		TreeNode<T> *parent;
 		while(true)
 		{
 			parent = current;
 			//check left or right
-			if((value->key)<(current->key)) //need to be able to check the Student ID number to see whether to go left or right
+			if((node->key)<(current->key)) //need to be able to check the Student ID number to see whether to go left or right
 			{
 				current = current->left;
 				if(current == NULL)

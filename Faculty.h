@@ -13,6 +13,7 @@ public:
 	void printFacultyAdvisees();
 	void addAdvisee();
 	void printAdviseesList();
+	int getID();
 private:
 	string name, job, department;
 	int facultyID;

@@ -54,3 +54,7 @@ void Faculty::printFaculty()
 	cout<<"\tList of advisees"<<endl;
 	//call printAdvisees list
 }
+int Faculty::getID()
+{
+	return facultyID;
+}

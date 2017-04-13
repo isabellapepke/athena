@@ -16,7 +16,7 @@ public:
 	void printStudent();
 	void printStudentAndAdvisor(int studIDInput);
 	void changeAdvisor(int facultyIDInput);//will need to do this on a student in the bst
-	//void UserInput();
+	int getID();
 
 private:
 	int studID, facultyID;

@@ -43,6 +43,12 @@ void Student::changeAdvisor(int facultyIDInput)
 }
 
 
+int Student::getID()
+{
+	return studID;
+}
+
+
 
 /*
 void Student::UserInput()

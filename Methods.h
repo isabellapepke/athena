@@ -10,12 +10,14 @@ using namespace std;
 class Methods
 {
 public:
-	//void StudentInOrder(T value); 
+	//void StudentInOrder(Student n); 
 	//void FacultyInOrder(Faculty n)
 	void menuOptions();
 	void createStudents();
 	void createFaculty();
 	void printAdvisees(int facultyIDInput);
+	void deleteStudent(int ID);
+	void deleteFaculty(int ID);
 
 private:
 

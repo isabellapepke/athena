@@ -51,6 +51,9 @@ int Student::getID()
 	return studID;
 }
 
+
+
+
  bool operator< ( Student &s1,  Student &s2)
  {
  	return s1.getID()<s2.getID();

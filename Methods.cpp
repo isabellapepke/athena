@@ -8,20 +8,19 @@ using namespace std;
 
 
 
-
 /*
 
-void Methods::StudentInOrder(Student n)
+void Methods::StudentInOrder(Student n) 
 {
 	if(n != NULL)
 	{
 		StudentInOrder(n->left);
-		cout<< n-> key <<endl;//access each object's method 
+		cout<< n.printStudent() <<endl;//access each object's method 
 		StudentInOrder(n->right);
 	}
 }
-*/
 
+*/
 
 
 /*
@@ -101,6 +100,19 @@ void Methods::createFaculty()
 
 }
 
+void Methods::deleteStudent(int ID)
+{
+	studentBST.remove(ID);
+}
+
+
+void Methods::deleteFaculty(int ID)
+{
+	facultyBST.remove(ID);
+}
+
+
+
 void Methods::printAdvisees(int facultyIDInput)
 {
 	//Faculty tempF = new Faculty(facultyBST.find(facultyIDInput));
@@ -161,7 +173,7 @@ void Methods::menuOptions()
 	cout << "14. Exit" << endl <<endl; 
 
 	cout << "Please enter which option you would like (a number): " <<endl;
-		string answer;
+	string answer;
 	cin >> answer;
 
 	int choice = atoi(answer.c_str());
@@ -172,12 +184,38 @@ void Methods::menuOptions()
 		createStudents(); 
 
 	}
+
+
+	else if(choice == 8)
+	{
+		cout << "Enter student ID you would like to delete: " <<endl;
+		string i;
+		int input = atoi(i.c_str());
+		deleteStudent(input);
+	}
+	
 	
 	else if (choice == 9)
 	{
 		createFaculty();
 	}
+
+
+	else if (choice == 10)
+	{
+		cout << "Enter faculty ID you would like to delete: " <<endl;
+		string i;
+		int input = atoi(i.c_str());
+		deleteFaculty(input);
+	}
+
+
+	else if(choice == 14)
+	{
+		exit(0);
+	}
 	
+
 	else
 	{
 		cout << "You did not enter what we wanted" <<endl;

@@ -1,7 +1,6 @@
 #ifndef BST_H
 #define BST_H
 
-
 #include <iostream>
 #include <string>
 
@@ -27,7 +26,8 @@ public:
 	int getMin();
 	//void InOrder(TreeNode<T> key)
 
-	void inOrder(TreeNode<T> *current);
+	void StudentInOrder(bool isStudent);
+	//void FacultyInOrder(); 
 
 	TreeNode<T> *getSuccessor(TreeNode<T> *d);
 
@@ -347,16 +347,42 @@ TreeNode<T> *BST<T>::getSuccessor(TreeNode<T> *d) //node to be deleted
 
 
 template <typename T>
-void BST<T>::inOrder(TreeNode<T> *current) 
+void BST<T>::StudentInOrder(bool isStudent) 
 {
+	TreeNode<T> *current = root;
+
 	if (current != NULL)
 	{
-		inOrder(current->left);
-		cout << current->key <<endl;
-		inOrder(current->right);
+		StudentInOrder(current->left);
+		if (isStudent)
+		{
+			//cout << current->value.printStudent() <<endl;
+		}
+		else
+		{
+			//cout << current->value.printFaculty() <<endl;
+		}
+		StudentInOrder(current->right);
 	}
 } 
 
+
+/*
+
+template <typename T>
+void BST<Faculty>::FacultyInOrder() 
+{
+	TreeNode<Faculty> *current = root;
+
+	if (current != NULL)
+	{
+		FacultyInOrder(current->left);
+		cout << (current->value.printStudent()) <<endl;
+		FacultyInOrder(current->right);
+	}
+} 
+
+*/
 
 
 

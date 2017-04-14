@@ -174,7 +174,7 @@ template<typename T>
 T BST<T>::find(int id)
 {
 	TreeNode<T> *current = root;
-	while (current->key != NULL)
+	while (current->key != -1)
 	{
 		if (id > current->key)
 		{

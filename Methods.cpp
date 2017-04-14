@@ -103,8 +103,8 @@ void Methods::createFaculty()
 
 void Methods::printAdvisees(int facultyIDInput)
 {
-	//Faculty tempF = new Faculty(facultyBST.find(facultyIDInput));
-	//lint<int> tempAL = tempF.getAdviseesList();
+	Faculty tempF(facultyBST.find(facultyIDInput));
+	list<int> tempAL = tempF.getAdviseesList();
 }
 
 
@@ -147,8 +147,8 @@ void Methods::menuOptions()
 	//can do if else statements for all options that will call other funcctions
 	cout << "1. Print all STUDENTS and their information. " <<endl;
 	cout << "2. Print all FACULTY and their information. " <<endl; 
-	cout << "3. Find and display students information given students ID" <<endl; //will prompt for student ID in aother fucntion
-	cout << "4. Find and display faculty information given faculty ID" << endl;
+	cout << "3. Find and display the student's information given the student's ID" <<endl; //will prompt for student ID in aother fucntion
+	cout << "4. Find and display the faculty's information given the faculty's ID" << endl;
 	cout << "5. Given a student's ID, print name and info of their advisor " <<endl;
 	cout << "6. Given a faculty ID, print ALL names & info of their students" <<endl;
 	cout << "7. Add a new Student" <<endl; //call create student in methods
@@ -166,15 +166,60 @@ void Methods::menuOptions()
 
 	int choice = atoi(answer.c_str());
 
-
-	if (choice == 7)
+	if(choice==1)
 	{
+		//will call inorder
+		cout<<"You chose choice 1"<<endl;
+	}
+	
+	else if (choice == 2)
+	{
+		//will call inorder
+		cout<<"You chose choice 2"<<endl;
+
+	}
+
+	else if (choice == 3)
+	{
+
+		cout<<"You chose choice 3"<<endl;
+		cout<<"Enter the student's ID: "<<endl;
+		int idInput;
+		cin>>idInput;
+		(studentBST.find(idInput)).printStudent();
+
+	}
+
+	else if (choice == 4)
+	{
+		cout<<"You chose choice 4"<<endl;
+	}
+
+	else if (choice == 5)
+	{
+		cout<<"You chose choice 5"<<endl;
+
+	}
+
+	else if (choice == 6)
+	{
+		cout<<"You chose choice 6"<<endl;
+	}
+
+	else if (choice == 7)
+	{
+		cout<<"You chose choice 7"<<endl;
 		createStudents(); 
 
+	}
+	else if (choice == 8)
+	{
+		cout<<"You chose choice 8"<<endl;
 	}
 	
 	else if (choice == 9)
 	{
+		cout<<"You chose choice 9"<<endl;
 		createFaculty();
 	}
 	

@@ -13,9 +13,9 @@ int main()
 
 	Methods newMethod;
 	newMethod.menuOptions();
-	//studentBST.inOrder(); //need to order student ID 
 
-	//studentBST.remove();
+	studentBST.StudentInOrder(true); //need to order student ID 
+
 
  	return 0;
 }

@@ -8,19 +8,15 @@ using namespace std;
 
 
 
-/*
 
-void Methods::StudentInOrder(Student n) 
+/*
+void Methods::StudentInOrder(Student a) 
 {
-	if(n != NULL)
-	{
-		StudentInOrder(n->left);
-		cout<< n.printStudent() <<endl;//access each object's method 
-		StudentInOrder(n->right);
-	}
+	studentBST.inOrder(a);
 }
 
-*/
+
+
 
 
 /*
@@ -254,7 +250,7 @@ void Methods::menuOptions()
 
 	else if(choice == 14)
 	{
-		exit(0);
+		//exit(0);
 	}
 	
 

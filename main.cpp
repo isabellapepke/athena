@@ -14,7 +14,7 @@ int main()
 	Methods newMethod;
 	newMethod.menuOptions();
 
-	studentBST.StudentInOrder(true); //need to order student ID 
+	//studentBST.StudentInOrder(true); //need to order student ID 
 
 
  	return 0;

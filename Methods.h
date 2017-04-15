@@ -10,7 +10,7 @@ using namespace std;
 class Methods
 {
 public:
-	//void StudentInOrder(Student n); 
+	//void StudentInOrder(Student a); 
 	//void FacultyInOrder(Faculty n)
 	void menuOptions();
 	void createStudents();

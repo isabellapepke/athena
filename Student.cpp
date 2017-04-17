@@ -58,6 +58,13 @@ int Student::getID()
  {
  	return s1.getID()<s2.getID();
  }
+
+ ostream& operator<< (ostream& out, Student &s)
+ {
+	out<<"Student:\n\tName: "<<s.name<<"\n\tStudent ID: "<<s.studID<<"\n\tFaculty ID: "<<s.facultyID<<"\n\tMajor: "<<s.major<<"\n\tYear: "<<s.year<<"\n\tGPA: "<<s.gpa<<endl;
+	return out;
+ }
+
  /*bool operator> ( Student &s1, Student &s2)
  {
  	return s1.getID()>s2.getID();

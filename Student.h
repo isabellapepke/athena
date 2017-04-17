@@ -18,7 +18,7 @@ public:
 	void changeAdvisor(int facultyIDInput);//will need to do this on a student in the bst
 	int getID();
 	friend bool operator< ( Student &s1,  Student &s2);
-
+	friend ostream& operator<< (ostream& out, Student &s);
 private:
 	int studID, facultyID;
 	string major, year, name;

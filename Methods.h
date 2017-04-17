@@ -18,6 +18,9 @@ public:
 	void printAdvisees(int facultyIDInput);
 	void deleteStudent(int ID);
 	void deleteFaculty(int ID);
+	int returnRoot(BST<Student> tree);
+	int returnRoot(BST<Faculty> tree);
+
 
 private:
 

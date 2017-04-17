@@ -24,8 +24,9 @@ public:
 
 	int getMax();
 	int getMin();
-
-	void inOrder(TreeNode<T> *root);
+	int getRoot();
+	void inOrder();//will recursivley call the inorder root;
+	void inOrder(TreeNode<T> *curr);
 	//void StudentInOrder(bool isStudent);
 	//void FacultyInOrder(); 
 
@@ -36,6 +37,12 @@ private:
 
 };
  
+template<typename T>
+int BST<T>::getRoot()
+{
+	return root->key;
+}
+
 template<typename T>
 BST<T>::BST()
 {
@@ -344,7 +351,6 @@ TreeNode<T> *BST<T>::getSuccessor(TreeNode<T> *d) //node to be deleted
 	return successor;
 }
 
-
 /*
 template <typename T>
 void BST<T>::StudentInOrder(bool isStudent) 
@@ -365,24 +371,30 @@ void BST<T>::StudentInOrder(bool isStudent)
 		StudentInOrder(current->right);
 	}
 } 
+*/
 
+template <typename T>
+void BST<T>::inOrder()
+{
+	inOrder(root);
+}
 
 
 template <typename T>
-void BST<T>::inOrder(TreeNode<T> *root)
+void BST<T>::inOrder(TreeNode<T> *curr)
 {
-	if (root != NULL)
+	if (curr != NULL)
 	{
-		InOrder(root->left);
-		cout<< root-> data <<endl;
-		InOrder(root->right);
+		inOrder(curr->left);
+		cout<< curr->value<<endl;
+		inOrder(curr->right);
 	}
 } 
 
 
 
-/*
 
+/*
 template <typename T>
 void BST<Faculty>::FacultyInOrder() 
 {

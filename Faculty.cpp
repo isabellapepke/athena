@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include "Faculty.h"
@@ -52,6 +51,11 @@ void Faculty::printAdviseesList()
 }
 
 */
+ostream& operator<< (ostream& out, Faculty &f)
+{
+	out<<"Faculty:\n\tName: "<<f.name<<"\n\tFaculty ID: "<<f.facultyID<<"\n\tDepartment: "<<f.department<<"\n\tJob: "<<f.job<<endl;
+	return out;
+}
 
 list<int> Faculty::getAdviseesList()
 {

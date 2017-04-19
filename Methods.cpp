@@ -122,40 +122,6 @@ void Methods::printAdvisees(int facultyIDInput)
 }
 
 
-
-
-/*
-
-void Methods::printMenu()
-{
-	cout << " Press 1 for add a Student \n\n Press 2 for add a new Faculty: " <<endl;
-	string answer;
-	cin >> answer;
-	//int choice = std::stoi(answer);
-
-	int choice = atoi(answer.c_str());
-
-	if (choice == 1)
-	{
-		createStudents(); 
-
-	}
-	
-	else if (choice == 2)
-	{
-		createFaculty();
-	}
-	
-	else
-	{
-		cout << "You did not enter what we wanted" <<endl;
-		//break;
-	}
-}
-
-*/
-
-
 void Methods::menuOptions()
 {
 	//can do if else statements for all options that will call other funcctions
@@ -194,6 +160,7 @@ void Methods::menuOptions()
 		{
 			//will call inorder
 			cout<<"You chose choice 2"<<endl;
+			facultyBST.inOrder();
 
 		}
 

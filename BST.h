@@ -376,7 +376,11 @@ void BST<T>::StudentInOrder(bool isStudent)
 template <typename T>
 void BST<T>::inOrder()
 {
-	inOrder(root);
+	if(getMin()==0)
+		cout<<"Nothing in our records."<<endl;
+
+	else
+		inOrder(root);
 }
 
 

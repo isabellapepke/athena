@@ -18,6 +18,8 @@ public:
 	int getID();
 	list<int> getAdviseesList();
 	friend bool operator<(Faculty &s1,  Faculty &s2);
+	friend ostream& operator<< (ostream& out, Faculty &s);
+
 
 private:
 	string name, job, department;

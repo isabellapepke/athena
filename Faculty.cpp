@@ -16,12 +16,18 @@ Faculty::Faculty()
 Faculty::Faculty(string nameInput, string jobInput, string departmentInput, int facultyIDInput, list<int> listInput)
 {
 	name = nameInput;
+	job = jobInput;
 	facultyID = facultyIDInput;
 	department = departmentInput;
 	adviseesList  = listInput;
-	job = jobInput;
 	
 }
+
+Faculty::Faculty( int facultyIDInput)
+{
+	facultyID = facultyIDInput;
+}
+
 Faculty::~Faculty()
 {
 
@@ -60,12 +66,13 @@ ostream& operator<< (ostream& out, Faculty &f)
 list<int> Faculty::getAdviseesList()
 {
 	return adviseesList;
+
 }
 
 void Faculty::printFaculty()
 {
 	cout<<"Faculty:\n\tName: "<<name<<"\n\tFaculty ID: "<<facultyID<<"\n\tDepartment: "<<department<<"\n\tJob: "<<job<<endl;
-	cout<<"\tList of advisees"<<endl;
+	cout<<"\tList of advisees"<< endl; //need to iterate through the list/array to print out 
 	//call printAdvisees list
 }
 int Faculty::getID()

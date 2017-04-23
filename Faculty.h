@@ -11,6 +11,7 @@ public:
 	Faculty();
 	~Faculty();
 	Faculty(string nameInput, string jobInput, string departmentInput, int facultyIDInput, list<int> listInput);
+	Faculty(int facultyIDInput);
 	void printFaculty();
 	void printFacultyAdvisees();
 	void addAdvisee();

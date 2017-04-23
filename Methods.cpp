@@ -229,7 +229,7 @@ void Methods::menuOptions()
 			cin>>idInput;
 
 			list<int> value; 
-			value = (facultyBST.find(idInput)).getAdviseesList();
+			//value = (facultyBST.find(idInput)).printAdviseesList();
 
 		
 /*

@@ -27,10 +27,7 @@ Faculty::~Faculty()
 
 }
 
-bool operator< ( Faculty &f1,  Faculty &f2)
-{
- 	return f1.getID()<f2.getID();
-}
+
 /*void printFaculty();
 	void printFacultyAdvisees();
 	void addAdvisee();*/
@@ -39,10 +36,15 @@ bool operator< ( Faculty &f1,  Faculty &f2)
 
 
 //Need to finsih code to print advisee list 
-/*
+
 void Faculty::printAdviseesList()
 {
-	
+	for (list<int>::const_iterator iterator = adviseesList.begin(), end = adviseesList.end(); iterator != end; ++iterator) 
+	{
+    	cout << *iterator;
+    }
+}
+/*
 	for(auto i = adviseesList.begin(); i != adviseesList.end(); ++i) 
 	{
     	cout<<i.print
@@ -51,6 +53,17 @@ void Faculty::printAdviseesList()
 }
 
 */
+
+bool operator== ( Faculty &f1,  Faculty &f2)
+{
+ 	return f1.getID()==f2.getID();
+}
+
+bool operator< ( Faculty &f1,  Faculty &f2)
+{
+ 	return f1.getID()<f2.getID();
+}
+
 ostream& operator<< (ostream& out, Faculty &f)
 {
 	out<<"Faculty:\n\tName: "<<f.name<<"\n\tFaculty ID: "<<f.facultyID<<"\n\tDepartment: "<<f.department<<"\n\tJob: "<<f.job<<endl;

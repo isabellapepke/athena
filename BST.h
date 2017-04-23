@@ -180,6 +180,11 @@ bool BST<T>::contains(T k)
 template<typename T>
 T BST<T>::find(int id)
 {
+	if(root == NULL)
+	{
+		cout<<"Not found"<<endl;
+		return T();
+	}
 	TreeNode<T> *current = root;
 	while (current->key != -1)
 	{

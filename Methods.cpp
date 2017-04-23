@@ -90,6 +90,9 @@ void Methods::createFaculty()
 		cout<< "Student ID number: " <<endl;
 
 		cin>> idInput;
+
+
+
 		adviseesListInput.push_back(idInput);
 	}
 	cout<<"Done entering advisees to the Faculty person"<<endl;
@@ -169,15 +172,36 @@ void Methods::menuOptions()
 
 			cout<<"You chose choice 3"<<endl;
 			cout<<"Enter the student's ID: "<<endl;
-			int idInput;
+			string idInput;
 			cin>>idInput;
-			(studentBST.find(idInput)).printStudent();
+			int input = atoi(idInput.c_str());
+			Student defaultStudent = Student();
+			Student temp = (studentBST.find(input));
+			if(temp == defaultStudent)
+			{
+				//dont print
+			}
+			else
+				cout<<temp;
 
 		}
 
 		else if (choice == 4)
 		{
 			cout<<"You chose choice 4"<<endl;
+			cout << "Enter faculty ID you would like to find: " <<endl;
+			string i;
+			cin>>i;
+			int input = atoi(i.c_str());
+			Faculty temp = facultyBST.find(input);
+			Faculty defaultFaculty = Faculty();
+			if(temp == defaultFaculty)
+			{
+				//dont print
+			}
+			else
+				cout<<temp;
+
 		}
 
 		else if (choice == 5)

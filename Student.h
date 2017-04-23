@@ -19,6 +19,7 @@ public:
 	int getID();
 	friend bool operator< ( Student &s1,  Student &s2);
 	friend ostream& operator<< (ostream& out, Student &s);
+	friend bool operator== ( Student &s1,  Student &s2);
 private:
 	int studID, facultyID;
 	string major, year, name;

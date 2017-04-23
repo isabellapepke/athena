@@ -16,6 +16,7 @@ public:
 	void printFacultyAdvisees();
 	void addAdvisee();
 	void printAdviseesList();
+	void removeAdvisee(int studIDInput);
 	int getID();
 	list<int> getAdviseesList();
 	friend bool operator<(Faculty &s1,  Faculty &s2);

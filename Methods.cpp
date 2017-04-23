@@ -215,7 +215,7 @@ void Methods::menuOptions()
 			facultyID = (studentBST.find(idInput)).getFaculty();
 			//cout << "The faculty ID for student is : " << facultyID <<endl;
 
-			(facultyBST.find(facultyID)).printFaculty(); //generate a seg fault because there is no faculty info..otherwise works 
+			facultyBST.find(facultyID); //generate a seg fault because there is no faculty info..otherwise works 
 			//add a if statement if no faculty in the 
 
 
@@ -291,6 +291,7 @@ void Methods::menuOptions()
 		{
 			cout << "Enter faculty ID you would like to delete: " <<endl;
 			string i;
+			cin>>i;
 			int input = atoi(i.c_str());
 			deleteFaculty(input);
 		}
@@ -314,7 +315,17 @@ void Methods::menuOptions()
 
 		else if(choice == 12)
 		{
+			//Remove an advisee from a faculty member given ID"
+
 			cout << "You chose choice 12" <<endl;
+			string i;
+			cout << "Enter the ID of the advisee (student) you wish to remove: "<<endl;
+			cin>>i;
+			int input = atoi(i.c_str());
+			Student studentInput = studentBST.find(input);
+			Faculty tempF = facultyBST.find(studentInput.getFaculty());
+			tempF.removeAdvisee(input);
+
 
 		}
 

@@ -6,10 +6,6 @@
 using namespace std;
 
 
-
-
-
-
 /*void Methods::StudentInOrder(Student a) 
 {
 	//studentBST.inOrder(a);
@@ -200,19 +196,69 @@ void Methods::menuOptions()
 				//dont print
 			}
 			else
-				cout<<temp;
-
+				cout<<temp;	
 		}
 
 		else if (choice == 5)
 		{
 			cout<<"You chose choice 5"<<endl;
+			cout << "Enter the Student's ID: " <<endl;
+			int idInput;
+			cin >> idInput;
+
+			//print all the info for their faculty advisor 
+			//access Student BST and return the Faculty advisor
+
+			//using Faculty ID acces faculty BST and print all info 
+
+			int facultyID;
+			facultyID = (studentBST.find(idInput)).getFaculty();
+			//cout << "The faculty ID for student is : " << facultyID <<endl;
+
+			(facultyBST.find(facultyID)).printFaculty(); //generate a seg fault because there is no faculty info..otherwise works 
+			//add a if statement if no faculty in the 
+
 
 		}
 
 		else if (choice == 6)
 		{
 			cout<<"You chose choice 6"<<endl;
+			cout<<"Enter the Faculty ID: " <<endl;
+			int idInput;
+			cin>>idInput;
+
+			list<int> value; 
+			value = (facultyBST.find(idInput)).getAdviseesList();
+
+		
+/*
+			for (int i = 0; i < value.size(); ++ i )
+			{
+				cout << "student in list: " << value.front() <<endl; 
+				value.pop_front();
+			}
+*/
+
+			list<int>::iterator itt = value.begin();
+			itt++;
+			itt++;
+
+			for(itt = value.begin(); itt != value.end(); itt++)
+			{
+				cout<<*itt<<endl; //this is the students ID number 
+				//need to access the Student BST and grab student info 
+				//(studentBST.find(*itt)).printStudent(); //creates a segmentation fault
+			}
+
+
+			//access the Faculty BST, and get the student ID numbers 
+			//access the student BST, in a loop print out all the student info 
+
+
+		
+	
+
 		}
 
 		else if (choice == 7)
@@ -249,6 +295,33 @@ void Methods::menuOptions()
 			deleteFaculty(input);
 		}
 
+		else if(choice == 11)
+		{
+			cout << "You chose choice 11" <<endl;
+
+			cout << " What is the Student's ID #: " <<endl;
+			int idInput;
+			cin>>idInput;
+			cout << "Enter the new Faculty ID: " <<endl;
+			int newID;
+			cin>>newID;
+
+			//create temporary students and faculty?
+			//if the student BST containts the student
+			//BST.find(studentID)
+
+		}
+
+		else if(choice == 12)
+		{
+			cout << "You chose choice 12" <<endl;
+
+		}
+
+		else if(choice == 13)
+		{
+			cout << "You chose choice 13" <<endl;
+		}
 
 		else if(choice == 14)
 		{

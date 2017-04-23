@@ -34,6 +34,16 @@ Student::Student(int studIDInput, int facultyIDInput, string majorInput, string 
 
 }
 
+Student::Student(int studIDInput)
+{
+	studID = studIDInput;
+	facultyID = 0;
+	major = "";
+	year = "";
+	name = "";
+	gpa = 0.0;
+
+}
 
 void Student::printStudent()//will print out all of student info
 {
@@ -51,6 +61,10 @@ int Student::getID()
 	return studID;
 }
 
+int Student::getFaculty()
+{
+	return facultyID;
+}
 
 bool operator==( Student &s1,  Student &s2)
  {

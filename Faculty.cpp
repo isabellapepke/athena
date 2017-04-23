@@ -33,6 +33,23 @@ Faculty::~Faculty()
 
 }
 
+void Faculty::removeAdvisee(int studIDInput)
+{
+	/*list<int> temp = adviseesList;
+	temp.remove(studIDInput);
+	if(temp==adviseesList)
+	{
+		cout<<"Student not found in advisees list of this faculty member"<<endl;
+	}
+	else
+	{
+		adviseesList.remove(studIDInput);
+		cout<<"Student "<<studIDInput<<" successfully removed"<<endl;
+	} */
+	adviseesList.remove(studIDInput);
+	
+
+}
 
 /*void printFaculty();
 	void printFacultyAdvisees();

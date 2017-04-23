@@ -51,9 +51,14 @@ void Faculty::removeAdvisee(int studIDInput)
 
 }
 
-/*void printFaculty();
-	void printFacultyAdvisees();
-	void addAdvisee();*/
+
+void Faculty::addAdvisee(int studIDInput)
+{
+	adviseesList.push_back(studIDInput);
+}
+
+//void printFaculty();
+//void printFacultyAdvisees();
 
 
 
@@ -64,7 +69,7 @@ void Faculty::printAdviseesList()
 {
 	for (list<int>::const_iterator iterator = adviseesList.begin(), end = adviseesList.end(); iterator != end; ++iterator) 
 	{
-    	cout << *iterator;
+    	cout << *iterator <<endl;
     }
 }
 /*
@@ -102,9 +107,10 @@ list<int> Faculty::getAdviseesList()
 void Faculty::printFaculty()
 {
 	cout<<"Faculty:\n\tName: "<<name<<"\n\tFaculty ID: "<<facultyID<<"\n\tDepartment: "<<department<<"\n\tJob: "<<job<<endl;
-	cout<<"\tList of advisees"<< endl; //need to iterate through the list/array to print out 
-	//call printAdvisees list
+	cout<<"\tList of advisees"<< endl;
+	printAdviseesList();  
 }
+
 int Faculty::getID()
 {
 	return facultyID;

@@ -14,7 +14,7 @@ public:
 	Faculty(int facultyIDInput);
 	void printFaculty();
 	void printFacultyAdvisees();
-	void addAdvisee();
+	void addAdvisee(int studIDInput);
 	void printAdviseesList();
 	void removeAdvisee(int studIDInput);
 	int getID();

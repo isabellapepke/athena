@@ -103,13 +103,14 @@ void Methods::createFaculty()
 void Methods::deleteStudent(int ID)
 {
 	studentBST.remove(ID);
-	cout<<"Successfully removed Student"<<endl;
+	cout<<"Student was deleted"<<endl;
 }
 
 
 void Methods::deleteFaculty(int ID)
 {
 	facultyBST.remove(ID);
+	cout << "Faculty was deleted " <<endl;
 }
 
 
@@ -163,7 +164,7 @@ void Methods::menuOptions()
 
 		}
 
-		else if (choice == 3)
+		else if (choice == 3)//display student info 
 		{
 
 			cout<<"You chose choice 3"<<endl;
@@ -217,9 +218,8 @@ void Methods::menuOptions()
 
 			facultyBST.find(facultyID); //generate a seg fault because there is no faculty info..otherwise works 
 			//add a if statement if no faculty in the 
-
-
 		}
+
 
 		else if (choice == 6)
 		{
@@ -229,37 +229,22 @@ void Methods::menuOptions()
 			cin>>idInput;
 
 			list<int> value; 
-			//value = (facultyBST.find(idInput)).printAdviseesList();
-
-		
-/*
-			for (int i = 0; i < value.size(); ++ i )
-			{
-				cout << "student in list: " << value.front() <<endl; 
-				value.pop_front();
-			}
-*/
-
-			list<int>::iterator itt = value.begin();
-			itt++;
-			itt++;
-
-			for(itt = value.begin(); itt != value.end(); itt++)
-			{
-				cout<<*itt<<endl; //this is the students ID number 
-				//need to access the Student BST and grab student info 
-				//(studentBST.find(*itt)).printStudent(); //creates a segmentation fault
-			}
-
-
-			//access the Faculty BST, and get the student ID numbers 
-			//access the student BST, in a loop print out all the student info 
-
-
-		
+			value = (facultyBST.find(idInput)).getAdviseesList();
 	
+			int temp;
+
+			
+			for (list<int>::const_iterator itt = value.begin(), end = value.end(); itt != end; ++itt) 
+			//for(itt = value.begin(); itt != value.end(); itt++)
+			{
+				temp = *itt; //this is the students ID number 
+				//need to access the Student BST and grab student info 
+				(studentBST.find(temp)).printStudent(); 
+			}
 
 		}
+
+
 
 		else if (choice == 7)
 		{
@@ -309,7 +294,26 @@ void Methods::menuOptions()
 
 			//create temporary students and faculty?
 			//if the student BST containts the student
-			//BST.find(studentID)
+			int temp;
+			Student tempS = studentBST.find(idInput);
+			if(tempS.getFaculty() != newID)
+			{
+				temp = tempS.getFaculty();
+				tempS.changeAdvisor(newID);
+			}
+			
+			else
+			{
+				//advisor is already assigned
+			}
+
+			//removing the student from the old advisor 
+			Faculty tempF = facultyBST.find(temp);
+			tempF.removeAdvisee(idInput); 
+
+			//need to add the new student ID to the list
+			Faculty tempF2 = facultyBST.find(newID);
+			tempF2.addAdvisee(idInput);
 
 		}
 
@@ -348,7 +352,7 @@ void Methods::menuOptions()
 		string menuInput;
 		cout<<"Do you want to see the menu again? type Y or N"<<endl;
 		cin>>menuInput;
-		if(menuInput!="Y")
+		if(menuInput!="Y" )
 		{
 			seeMenu = false;
 		}

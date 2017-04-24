@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
 
 #include "TreeNode.h"
 
@@ -31,6 +32,9 @@ public:
 	//void FacultyInOrder(); 
 
 	TreeNode<T> *getSuccessor(TreeNode<T> *d);
+
+	void printToFile();
+	void printToFile(TreeNode<T> *curr);
 
 private:
 	TreeNode<T>* root;
@@ -401,6 +405,30 @@ void BST<T>::inOrder(TreeNode<T> *curr)
 } 
 
 
+template <typename T>
+void BST<T>::printToFile()
+{
+	if(getMin()==0)
+		cout<<"Nothing in our records."<<endl;
+
+	else
+		printToFile(root);
+}
+
+
+template <typename T>
+void BST<T>::printToFile(TreeNode<T> *curr) //Basically in order traversal 
+{
+	ofstream outFile;
+	outFile.open("Output.txt");
+
+	if (curr != NULL)
+	{
+		printToFile( curr->left);
+        outFile<<curr->value <<endl;// " " << tree->count << ".";
+        printToFile(curr->right);
+	}
+}
 
 
 /*

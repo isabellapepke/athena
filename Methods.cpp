@@ -345,6 +345,7 @@ void Methods::menuOptions()
 		else if(choice == 13)
 		{
 			cout << "You chose choice 13" <<endl;
+			studentBST.printToFile();
 		}
 
 		else if(choice == 14)

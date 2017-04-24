@@ -26,7 +26,7 @@ private:
 
 	BST<Student> studentBST; //creating the student BST
 	BST<Faculty> facultyBST; //creating the faculty BST
-	stack<Student> studentBSTStack; //our stack of student
-	stack<Faculty> facultyBSTStack; 
+	stack<Student> studentBSTStack; //our stack of studentBSTs
+	stack<Faculty> facultyBSTStack; //out stack of facultyBSTs
 
 };

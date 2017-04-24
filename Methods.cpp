@@ -94,9 +94,8 @@ void Methods::createFaculty()
 	cout<<"Done entering advisees to the Faculty person"<<endl;
 
 	Faculty f(fNameInput, jobInput, departmentInput, facultyIDInput, adviseesListInput);
-	f.printFaculty();
 	facultyBST.insert(f); //adding the faculty to the BST
-
+	cout<<f<<endl;
 
 }
 
@@ -239,7 +238,9 @@ void Methods::menuOptions()
 			{
 				temp = *itt; //this is the students ID number 
 				//need to access the Student BST and grab student info 
-				(studentBST.find(temp)).printStudent(); 
+			//	(studentBST.find(temp)).printStudent(); 
+				Student adviseeStud = (studentBST.find(temp));
+				cout<<adviseeStud;
 			}
 
 		}
@@ -327,9 +328,17 @@ void Methods::menuOptions()
 			cin>>i;
 			int input = atoi(i.c_str());
 			Student studentInput = studentBST.find(input);
-			Faculty tempF = facultyBST.find(studentInput.getFaculty());
-			tempF.removeAdvisee(input);
+			Student defaultStudent = Student();
+			if(studentInput == defaultStudent)
+			{
+				//student doesnt not exist
+			}
+			else
+			{
+				Faculty tempF = facultyBST.find(studentInput.getFaculty());
+				tempF.removeAdvisee(input);
 
+			}
 
 		}
 

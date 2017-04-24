@@ -46,7 +46,7 @@ void Faculty::removeAdvisee(int studIDInput)
 		adviseesList.remove(studIDInput);
 		cout<<"Student "<<studIDInput<<" successfully removed"<<endl;
 	} */
-	adviseesList.remove(studIDInput);
+	adviseesList.erase(remove(adviseesList.begin(), adviseesList.end(), studIDInput), adviseesList.end());
 	
 
 }

@@ -36,13 +36,15 @@ int Methods::returnRoot(BST<Faculty> tree)
 void Methods::createStudents()
 {	
 	int studentIDInput, facultyIDInput;
-	string majorInput, yearInput, nameInput;
+	string majorInput, yearInput, nameInput, input;
 	double gpaInput;
 
 	cout << "Enter Student ID number:  " <<endl;
-	cin >> studentIDInput;
+	cin >> input;
+	studentIDInput = atoi(input.c_str());
 	cout<< "Enter Faculty ID number: " <<endl;
-	cin >> facultyIDInput;
+	cin >> input;
+	facultyIDInput = atoi(input.c_str());
 	cout << "Enter Major of Student: " <<endl;
 	cin >> majorInput;
 	cout << "Enter year of student: " <<endl;
@@ -50,7 +52,9 @@ void Methods::createStudents()
 	cout << " Enter name of student: " <<endl;
 	cin >> nameInput;
 	cout << "Enter gpa of student: " <<endl;
-	cin >> gpaInput;
+	cin >> input;
+	gpaInput = atoi(input.c_str());
+
 
 	Student a(studentIDInput, facultyIDInput, majorInput, yearInput, nameInput, gpaInput);
 
@@ -64,7 +68,7 @@ void Methods::createStudents()
 
 void Methods::createFaculty()
 {
-	string fNameInput, jobInput, departmentInput;
+	string fNameInput, jobInput, departmentInput, input;
 	int facultyIDInput;
 	list<int> adviseesListInput;
 
@@ -75,8 +79,8 @@ void Methods::createFaculty()
 	cout << "Enter department of faculty: " <<endl;
 	cin >> departmentInput;
 	cout << "Enter faculty ID number: " <<endl;
-	cin >> facultyIDInput;
-
+	cin >> input;
+	facultyIDInput = atoi(input.c_str());
 	cout << "How many students is the Faculty an advisor for (how many students will you add this faculty as their advisor)?" << endl;
 	int i;//how many ids they are entering
 	int idInput;//student id input
@@ -95,8 +99,6 @@ void Methods::createFaculty()
 
 	Faculty f(fNameInput, jobInput, departmentInput, facultyIDInput, adviseesListInput);
 	facultyBST.insert(f); //adding the faculty to the BST
-	cout<<f<<endl;
-
 }
 
 void Methods::deleteStudent(int ID)
@@ -127,20 +129,21 @@ void Methods::menuOptions()
 	bool seeMenu = true;
 	while(seeMenu)
 	{	
-		cout << "1. Print all STUDENTS and their information. " <<endl;
-		cout << "2. Print all FACULTY and their information. " <<endl; 
-		cout << "3. Find and display the student's information given the student's ID" <<endl; //will prompt for student ID in aother fucntion
-		cout << "4. Find and display the faculty's information given the faculty's ID" << endl;
-		cout << "5. Given a student's ID, print name and info of their advisor " <<endl;
-		cout << "6. Given a faculty ID, print ALL names & info of their students" <<endl;
-		cout << "7. Add a new Student" <<endl; //call create student in methods
-		cout << "8. Delete a student, Give the ID " << endl;
-		cout << "9. Add a new faculty member" << endl;
-		cout << "10. Delete a faculty member given the ID " <<endl;
-		cout << "11. Change a student's advisor given Student ID and new faculty ID" <<endl;
-		cout << "12. Remove an advisee from a faculty member given ID" <<endl;
-		cout << "13. Rollback" <<endl;
-		cout << "14. Exit" << endl <<endl; 
+
+		cout << "\n\t1. Print all STUDENTS and their information. " <<endl;
+		cout << "\t2. Print all FACULTY and their information. " <<endl; 
+		cout << "\t3. Find and display the student's information given the student's ID" <<endl; //will prompt for student ID in aother fucntion
+		cout << "\t4. Find and display the faculty's information given the faculty's ID" << endl;
+		cout << "\t5. Given a student's ID, print name and info of their advisor " <<endl;
+		cout << "\t6. Given a faculty ID, print ALL names & info of their students" <<endl;
+		cout << "\t7. Add a new Student" <<endl; //call create student in methods
+		cout << "\t8. Delete a student, Give the ID " << endl;
+		cout << "\t9. Add a new faculty member" << endl;
+		cout << "\t10. Delete a faculty member given the ID " <<endl;
+		cout << "\t11. Change a student's advisor given Student ID and new faculty ID" <<endl;
+		cout << "\t12. Remove an advisee from a faculty member given ID" <<endl;
+		cout << "\t13. Rollback" <<endl;
+		cout << "\t14. Exit" << endl <<endl; 
 
 		cout << "Please enter which option you would like (a number): " <<endl;
 		string answer;
@@ -203,20 +206,25 @@ void Methods::menuOptions()
 		{
 			cout<<"You chose choice 5"<<endl;
 			cout << "Enter the Student's ID: " <<endl;
-			int idInput;
+			string idInput;
 			cin >> idInput;
+			int input = atoi(idInput.c_str());
+			Student defaultStudent = Student();
+			Student temp = studentBST.find(input);
 
-			//print all the info for their faculty advisor 
-			//access Student BST and return the Faculty advisor
-
-			//using Faculty ID acces faculty BST and print all info 
-
-			int facultyID;
-			facultyID = (studentBST.find(idInput)).getFaculty();
-			//cout << "The faculty ID for student is : " << facultyID <<endl;
-
-			facultyBST.find(facultyID); //generate a seg fault because there is no faculty info..otherwise works 
+			if(temp == defaultStudent)
+			{
+				//student doesnot exist
+			}
+			else
+			{
+				int facultyID;
+				facultyID = (studentBST.find(input)).getFaculty();
+				//cout << "The faculty ID for student is : " << facultyID <<endl;
+				facultyBST.find(facultyID);
+			//generate a seg fault because there is no faculty info..otherwise works 
 			//add a if statement if no faculty in the 
+			} 
 		}
 
 
@@ -262,7 +270,15 @@ void Methods::menuOptions()
 			string i;
 			cin>>i;
 			int input = atoi(i.c_str());
-			deleteStudent(input);
+			Student defaultStudent = Student();
+			Student temp = studentBST.find(input);
+
+			if(temp == defaultStudent)
+			{
+				//student doesnot exist
+			}
+			else
+				deleteStudent(input);
 		}
 		
 		
@@ -279,43 +295,60 @@ void Methods::menuOptions()
 			string i;
 			cin>>i;
 			int input = atoi(i.c_str());
-			deleteFaculty(input);
+			Faculty defaultFaculty = Faculty();
+			Faculty temp = facultyBST.find(input);
+
+			if(temp == defaultFaculty)
+			{
+				//student doesnot exist
+			}
+			else
+				deleteFaculty(input);
 		}
 
 		else if(choice == 11)
 		{
 			cout << "You chose choice 11" <<endl;
+			string input;
+			cout << "What is the Student's ID #: " <<endl;
+			cin>>input;
+			int idInput = atoi(input.c_str());
+			Student defaultStudent = Student();
+			Student temp = studentBST.find(idInput);
 
-			cout << " What is the Student's ID #: " <<endl;
-			int idInput;
-			cin>>idInput;
-			cout << "Enter the new Faculty ID: " <<endl;
-			int newID;
-			cin>>newID;
-
-			//create temporary students and faculty?
-			//if the student BST containts the student
-			int temp;
-			Student tempS = studentBST.find(idInput);
-			if(tempS.getFaculty() != newID)
+			if(temp == defaultStudent)
 			{
-				temp = tempS.getFaculty();
-				tempS.changeAdvisor(newID);
+				//student doesnot exist
 			}
-			
 			else
 			{
-				//advisor is already assigned
+				cout << "Enter the new Faculty ID: " <<endl;
+				int newID;
+				cin>>input;
+				int oldFacultyID;
+				newID = atoi(input.c_str());
+
+				//create temporary students and faculty?
+				//if the student BST containts the student
+				if(temp.getFaculty() != newID)
+				{
+					oldFacultyID = temp.getFaculty();
+					temp.changeAdvisor(newID);
+				}
+				
+				else
+				{
+					//advisor is already assigned
+				}
+
+				//removing the student from the old advisor 
+				Faculty tempF = facultyBST.find(oldFacultyID);
+				tempF.removeAdvisee(idInput); 
+
+				//need to add the new student ID to the list
+				Faculty tempF2 = facultyBST.find(newID);
+				tempF2.addAdvisee(idInput);
 			}
-
-			//removing the student from the old advisor 
-			Faculty tempF = facultyBST.find(temp);
-			tempF.removeAdvisee(idInput); 
-
-			//need to add the new student ID to the list
-			Faculty tempF2 = facultyBST.find(newID);
-			tempF2.addAdvisee(idInput);
-
 		}
 
 		else if(choice == 12)
@@ -349,7 +382,7 @@ void Methods::menuOptions()
 
 		else if(choice == 14)
 		{
-			//exit(0);
+			exit(0);
 		}
 		
 
@@ -358,13 +391,7 @@ void Methods::menuOptions()
 			cout << "You did not enter what we wanted" <<endl;
 			//break;
 		}
-		string menuInput;
-		cout<<"Do you want to see the menu again? type Y or N"<<endl;
-		cin>>menuInput;
-		if(menuInput!="Y" )
-		{
-			seeMenu = false;
-		}
+		
 
 	}
 

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+#include <stack>
 #include "BST.h"
 #include "Student.h"
 #include "Faculty.h"
@@ -26,5 +26,7 @@ private:
 
 	BST<Student> studentBST; //creating the student BST
 	BST<Faculty> facultyBST; //creating the faculty BST
+	stack<Student> studentBSTStack; //our stack of student
+	stack<Faculty> facultyBSTStack; 
 
 };

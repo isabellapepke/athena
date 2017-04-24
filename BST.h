@@ -264,7 +264,7 @@ bool BST<T>::remove(int k)
 		{
 			parent->right = NULL;
 		}
-		cout<<"DELETED WITH 0 CHILDREN"<<endl;
+		//cout<<"DELETED WITH 0 CHILDREN"<<endl;
 
 	}
 
@@ -284,7 +284,7 @@ bool BST<T>::remove(int k)
 		{
 			parent->right = current->left;
 		}
-		cout<<"DELETED WITH 1 CHILDREN"<<endl;
+		//cout<<"DELETED WITH 1 CHILDREN"<<endl;
 
 	}
 
@@ -302,7 +302,7 @@ bool BST<T>::remove(int k)
 		{
 			parent->right = current->right;//nulled out the child
 		}
-		cout<<"DELETED WITH 1 CHILDREN right"<<endl;
+		//cout<<"DELETED WITH 1 CHILDREN right"<<endl;
 
 	}
 
@@ -324,7 +324,7 @@ bool BST<T>::remove(int k)
 		}
 
 		successor->left = current->left;
-		cout<<"DELETED WITH TWO CHILDREN"<<endl;
+		//cout<<"DELETED WITH TWO CHILDREN"<<endl;
 
 	}
 	return true;
@@ -356,27 +356,6 @@ TreeNode<T> *BST<T>::getSuccessor(TreeNode<T> *d) //node to be deleted
 	return successor;
 }
 
-/*
-template <typename T>
-void BST<T>::StudentInOrder(bool isStudent) 
-{
-	TreeNode<T> *current = root;
-
-	if (current != NULL)
-	{
-		StudentInOrder(current->left);
-		if (isStudent)
-		{
-			//cout << current->value.printStudent() <<endl;
-		}
-		else
-		{
-			//cout << current->value.printFaculty() <<endl;
-		}
-		StudentInOrder(current->right);
-	}
-} 
-*/
 
 template <typename T>
 void BST<T>::inOrder()
@@ -399,26 +378,5 @@ void BST<T>::inOrder(TreeNode<T> *curr)
 		inOrder(curr->right);
 	}
 } 
-
-
-
-
-/*
-template <typename T>
-void BST<Faculty>::FacultyInOrder() 
-{
-	TreeNode<Faculty> *current = root;
-
-	if (current != NULL)
-	{
-		FacultyInOrder(current->left);
-		cout << (current->value.printStudent()) <<endl;
-		FacultyInOrder(current->right);
-	}
-} 
-
-*/
-
-
 
 #endif 

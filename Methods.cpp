@@ -52,16 +52,16 @@ void Methods::createFaculty()
 {
 	string fNameInput, jobInput, departmentInput, input;
 	int facultyIDInput;
-	list<int> adviseesListInput;
-
+	vector<int> adviseesListInput;
+	cout << "Enter faculty ID number: " <<endl;
+	cin >> input;
 	cout << "Enter Faculty name:  " <<endl;
 	cin >> fNameInput;
 	cout<< "Enter job of faculty: " <<endl;
 	cin >> jobInput;
 	cout << "Enter department of faculty: " <<endl;
 	cin >> departmentInput;
-	cout << "Enter faculty ID number: " <<endl;
-	cin >> input;
+	
 	facultyIDInput = atoi(input.c_str());
 	cout << "How many students is the Faculty an advisor for (how many students will you add this faculty as their advisor)?" << endl;
 	int i;//how many ids they are entering
@@ -101,7 +101,7 @@ void Methods::deleteFaculty(int ID)
 void Methods::printAdvisees(int facultyIDInput)
 {
 	Faculty tempF(facultyBST.find(facultyIDInput));
-	list<int> tempAL = tempF.getAdviseesList();
+	vector<int> tempAL = tempF.getAdviseesList();
 }
 
 
@@ -214,24 +214,27 @@ void Methods::menuOptions()
 		{
 			cout<<"You chose choice 6"<<endl;
 			cout<<"Enter the Faculty ID: " <<endl;
-			int idInput;
-			cin>>idInput;
-
-			list<int> value; 
-			value = (facultyBST.find(idInput)).getAdviseesList();
+			string idInput;
+			cin >> idInput;
+			int input = atoi(idInput.c_str()); 
+			vector<int> value = (facultyBST.find(input)).getAdviseesList();
 	
 			int temp;
-
+			for(vector<int>::size_type i = 0; i != value.size(); i++) 
+			{
+   				//i = value[i];
+   				Student adviseeStud = (studentBST.find(value[i]));
+				cout<<adviseeStud;
+			}
 			
-			for (list<int>::const_iterator itt = value.begin(), end = value.end(); itt != end; ++itt) 
-			//for(itt = value.begin(); itt != value.end(); itt++)
+			/*for (list<int>::const_iterator itt = value.begin(), end = value.end(); itt != end; ++itt) 
 			{
 				temp = *itt; //this is the students ID number 
 				//need to access the Student BST and grab student info 
 			//	(studentBST.find(temp)).printStudent(); 
 				Student adviseeStud = (studentBST.find(temp));
 				cout<<adviseeStud;
-			}
+			}*/
 
 		}
 

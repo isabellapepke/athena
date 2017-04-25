@@ -13,7 +13,7 @@ Faculty::Faculty()
 
 }
 
-Faculty::Faculty(string nameInput, string jobInput, string departmentInput, int facultyIDInput, list<int> listInput)
+Faculty::Faculty(string nameInput, string jobInput, string departmentInput, int facultyIDInput, vector<int> listInput)
 {
 	name = nameInput;
 	job = jobInput;
@@ -48,7 +48,7 @@ void Faculty::removeAdvisee(int studIDInput)
 	} */
 	//adviseesList.erase(remove(adviseesList.begin(), adviseesList.end(), studIDInput), adviseesList.end());
 	
-
+	adviseesList.erase(adviseesList.begin()+1);
 }
 
 
@@ -67,20 +67,17 @@ void Faculty::addAdvisee(int studIDInput)
 
 void Faculty::printAdviseesList()
 {
-	for (list<int>::const_iterator iterator = adviseesList.begin(), end = adviseesList.end(); iterator != end; ++iterator) 
+	/*for (list<int>::const_iterator iterator = adviseesList.begin(), end = adviseesList.end(); iterator != end; ++iterator) 
 	{
     	cout << *iterator <<endl;
-    }
-}
-/*
-	for(auto i = adviseesList.begin(); i != adviseesList.end(); ++i) 
+    }*/
+    for(vector<int>::size_type i = 0; i != adviseesList.size(); i++) 
 	{
-    	cout<<i.print
-   	}
-		
+   		cout <<adviseesList[i]<<endl;
+	}
 }
 
-*/
+
 
 bool operator== ( Faculty &f1,  Faculty &f2)
 {
@@ -98,7 +95,7 @@ ostream& operator<< (ostream& out, Faculty &f)
 	return out;
 }
 
-list<int> Faculty::getAdviseesList()
+vector<int> Faculty::getAdviseesList()
 {
 	return adviseesList;
 

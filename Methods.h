@@ -4,6 +4,7 @@
 #include "BST.h"
 #include "Student.h"
 #include "Faculty.h"
+#include "TreeNode.h"
 
 using namespace std;
 
@@ -18,15 +19,17 @@ public:
 	void printAdvisees(int facultyIDInput);
 	void deleteStudent(int ID);
 	void deleteFaculty(int ID);
-	int returnRoot(BST<Student> tree);
-	int returnRoot(BST<Faculty> tree);
+	//BST<Student> copyStudentBST(TreeNode<Faculty> curr);
+	//BST<Faculty> copyFacultyBST(TreeNode<Student> curr);
+	void copyToSStack(BST<Student> tree);
+	void copyToFStack(BST<Faculty> tree);
 
 
 private:
 
 	BST<Student> studentBST; //creating the student BST
 	BST<Faculty> facultyBST; //creating the faculty BST
-	stack<Student> studentBSTStack; //our stack of studentBSTs
-	stack<Faculty> facultyBSTStack; //out stack of facultyBSTs
+	stack<BST<Student> > studentStack; //our stack of studentBSTs
+	stack<BST<Faculty> > facultyStack; //out stack of facultyBSTs
 
 };

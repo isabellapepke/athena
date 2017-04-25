@@ -25,11 +25,11 @@ public:
 
 	int getMax();
 	int getMin();
-	int getRoot();
+	int getRootID();
 	void inOrder();//will recursivley call the inorder root;
 	void inOrder(TreeNode<T> *curr);
-	//void StudentInOrder(bool isStudent);
-	//void FacultyInOrder(); 
+	BST<T> copyBST(TreeNode<T> *curr);
+	void copyBST();
 
 	TreeNode<T> *getSuccessor(TreeNode<T> *d);
 
@@ -40,9 +40,27 @@ private:
 	TreeNode<T>* root;
 
 };
- 
+
 template<typename T>
-int BST<T>::getRoot()
+void BST<T>::copyBST()
+{
+	copyBST(root);
+}
+
+template<typename T>
+BST<T> BST<T>::copyBST(TreeNode<T> *curr)
+{
+	BST<T> copy;
+	//we should check for null already
+	copy.insert(curr);
+	copyBST(curr->left);
+	copyBST(curr->right);
+	return copy;
+}
+
+
+template<typename T>
+int BST<T>::getRootID()
 {
 	return root->key;
 }
@@ -410,6 +428,7 @@ void BST<T>::printToFile(TreeNode<T> *curr) //Basically in order traversal
 	}
 	outFile.close();
 }
+
 
 
 

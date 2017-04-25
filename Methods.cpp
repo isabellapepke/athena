@@ -5,33 +5,15 @@
 
 using namespace std;
 
-
-/*void Methods::StudentInOrder(Student a) 
+void Methods::copyToSStack(BST<Student> tree)
 {
-	//studentBST.inOrder(a);
-}*/
-
-
-/*void Methods::FacultyInOrder(Faculty n)
-{
-	//has to go through using key/ID
-	if(n != NULL)
-	{
-		FacultyInOrder(n->left);
-		cout<< n-> key <<endl;//access each object's method 
-		FacultyInOrder(n->right);
-	}
-}*/
-
-
-int Methods::returnRoot(BST<Student> tree)
-{
-	return tree.getRoot();
+	studentStack.push(tree);
 }
-int Methods::returnRoot(BST<Faculty> tree)
+void Methods::copyToFStack(BST<Faculty> tree)
 {
-	return tree.getRoot();
+	facultyStack.push(tree);
 }
+
 
 void Methods::createStudents()
 {	

@@ -49,7 +49,7 @@ void Methods::createStudents()
 	cin >> majorInput;
 	cout << "Enter year of student: " <<endl;
 	cin >> yearInput;
-	cout << " Enter name of student: " <<endl;
+	cout << "Enter name of student: " <<endl;
 	cin >> nameInput;
 	cout << "Enter gpa of student: " <<endl;
 	cin >> input;
@@ -378,11 +378,13 @@ void Methods::menuOptions()
 		else if(choice == 13)
 		{
 			cout << "You chose choice 13" <<endl;
-			studentBST.printToFile();
 		}
 
 		else if(choice == 14)
 		{
+			cout << "You chose the exit the program. GOODBYE"<<endl;
+			studentBST.printToFile();
+			facultyBST.printToFile();
 			exit(0);
 		}
 		

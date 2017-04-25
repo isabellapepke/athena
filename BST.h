@@ -398,15 +398,17 @@ void BST<T>::printToFile()
 template <typename T>
 void BST<T>::printToFile(TreeNode<T> *curr) //Basically in order traversal 
 {
-	ofstream outFile;
+	fstream outFile;
 	outFile.open("Output.txt");
 
 	if (curr != NULL)
 	{
-		printToFile( curr->left);
-        outFile<<curr->value <<endl;// " " << tree->count << ".";
+		printToFile(curr->left);
+		cout << "You are printing to the file Output.txt"<< "\n\n"<< endl;
+        outFile<< curr->value << endl;// " " << tree->count << ".";
         printToFile(curr->right);
 	}
+	outFile.close();
 }
 
 

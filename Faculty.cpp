@@ -49,10 +49,10 @@ void Faculty::removeAdvisee(int studIDInput)
         }
 		adviseesList.erase(adviseesList.begin()+deleteIndex);
 	}
-    for(vector<int>::size_type i = 0; i != adviseesList.size(); i++) 
+    /*for(vector<int>::size_type i = 0; i != adviseesList.size(); i++) 
     {
     	std::cout <<adviseesList[i]<<endl;
-    }
+    }*/
 
 
 	/*vector<int> temp = adviseesList;
@@ -78,6 +78,7 @@ void Faculty::removeAdvisee(int studIDInput)
 
 void Faculty::addAdvisee(int studIDInput)
 {
+	cout<<"ADDING ADVISEE TO LIST"<<endl;
 	adviseesList.push_back(studIDInput);
 }
 

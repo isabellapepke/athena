@@ -26,6 +26,7 @@ void Methods::createStudents()
 	studentIDInput = atoi(input.c_str());
 	cout<< "Enter Faculty ID number: " <<endl;
 	cin >> input;
+	//search if faculty already created if not prompt for
 	facultyIDInput = atoi(input.c_str());
 	cout << "Enter Major of Student: " <<endl;
 	cin >> majorInput;
@@ -36,13 +37,24 @@ void Methods::createStudents()
 	cout << "Enter gpa of student: " <<endl;
 	cin >> input;
 	gpaInput = atoi(input.c_str());
-
-
 	Student a(studentIDInput, facultyIDInput, majorInput, yearInput, nameInput, gpaInput);
+	cout<<a<<endl;
+	studentBST.insert(a);
 
-	a.printStudent();
+	//if faculty not found immeadiately prompt
+	Faculty defaultFaculty = Faculty();
+	Faculty temp = facultyBST.find(facultyIDInput);
+	if(temp==defaultFaculty)
+	{
+		cout<<"We do not have records of that faculty memeber. Please enter the following information: "<<endl;
+		createFaculty();
+	}
+	else
+	{
+		//add student to faculty list find faculy then add the student
+		temp.addAdvisee(studentIDInput);
 
-	studentBST.insert(a); //adding the student to the BST
+	}
 
 }
 
@@ -74,13 +86,25 @@ void Methods::createFaculty()
 		cin>> idInput;
 
 
-
+		//addAdvisee(idInput);
 		adviseesListInput.push_back(idInput);
 	}
 	cout<<"Done entering advisees to the Faculty person"<<endl;
 
 	Faculty f(fNameInput, jobInput, departmentInput, facultyIDInput, adviseesListInput);
 	facultyBST.insert(f); //adding the faculty to the BST
+	Student defaultStudent = Student();
+	//vector<int>  f.getAdviseesList();
+	//iterate
+	for(vector<int>::size_type i = 0; i != f.getAdviseesList().size(); i++) 
+        {
+        	Student temp = studentBST.find(f.getAdviseesList()[i]);
+			if(temp==defaultStudent)
+			{
+				cout<<"We do not have records of that student. Please enter the following information: "<<endl;
+				createStudents();
+			}
+		}
 }
 
 void Methods::deleteStudent(int ID)
@@ -217,13 +241,13 @@ void Methods::menuOptions()
 			string idInput;
 			cin >> idInput;
 			int input = atoi(idInput.c_str()); 
-			vector<int> value = (facultyBST.find(input)).getAdviseesList();
+			vector<int> advisees = (facultyBST.find(input)).getAdviseesList();
 	
 			int temp;
-			for(vector<int>::size_type i = 0; i != value.size(); i++) 
+			for(vector<int>::size_type i = 0; i < advisees.size(); i++) 
 			{
    				//i = value[i];
-   				Student adviseeStud = (studentBST.find(value[i]));
+   				Student adviseeStud = (studentBST.find(advisees[i]));
 				cout<<adviseeStud;
 			}
 			
@@ -353,7 +377,7 @@ void Methods::menuOptions()
 			}
 			else
 			{
-				cout<<"in remove advisee"<<endl;
+				//cout<<"in remove advisee"<<endl;
 				Faculty tempF = facultyBST.find(studentInput.getFaculty());
 				Faculty defaultFaculty = Faculty();
 				if(tempF ==defaultFaculty)

@@ -35,7 +35,33 @@ Faculty::~Faculty()
 
 void Faculty::removeAdvisee(int studIDInput)
 {
-	/*list<int> temp = adviseesList;
+	vector<int> temp = adviseesList;
+    if (std::find(temp.begin(), temp.end(), studIDInput) != temp.end() )
+	{
+	    int deleteIndex;
+	    for(vector<int>::size_type i = 0; i != adviseesList.size(); i++) 
+        {
+            if(adviseesList[i]==studIDInput)
+            {
+                deleteIndex = i;
+            }
+            
+        }
+		adviseesList.erase(adviseesList.begin()+deleteIndex);
+	}
+    for(vector<int>::size_type i = 0; i != adviseesList.size(); i++) 
+    {
+    	std::cout <<adviseesList[i]<<endl;
+    }
+
+
+	/*vector<int> temp = adviseesList;
+	//Student defaultStudent = Student();
+	if ( std::find(temp.begin(), vector.end(), studIDInput) != vector.end() )
+	{
+		//adviseesList.erase(adviseesList.begin());
+	}
+
 	temp.remove(studIDInput);
 	if(temp==adviseesList)
 	{
@@ -45,10 +71,8 @@ void Faculty::removeAdvisee(int studIDInput)
 	{
 		adviseesList.remove(studIDInput);
 		cout<<"Student "<<studIDInput<<" successfully removed"<<endl;
-	} */
-	//adviseesList.erase(remove(adviseesList.begin(), adviseesList.end(), studIDInput), adviseesList.end());
-	
-	adviseesList.erase(adviseesList.begin()+1);
+	} 
+	adviseesList.erase(remove(adviseesList.begin(), adviseesList.end(), studIDInput), adviseesList.end());*/
 }
 
 
@@ -91,7 +115,7 @@ bool operator< ( Faculty &f1,  Faculty &f2)
 
 ostream& operator<< (ostream& out, Faculty &f)
 {
-	out<<"Faculty:\n\tName: "<<f.name<<"\n\tFaculty ID: "<<f.facultyID<<"\n\tDepartment: "<<f.department<<"\n\tJob: "<<f.job<<endl;
+	out<<"\nFaculty:\n\tName: "<<f.name<<"\n\tFaculty ID: "<<f.facultyID<<"\n\tDepartment: "<<f.department<<"\n\tJob: "<<f.job<<endl;
 	return out;
 }
 

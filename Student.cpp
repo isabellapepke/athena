@@ -70,7 +70,7 @@ bool operator==( Student &s1,  Student &s2)
 
  ostream& operator<< (ostream& out, Student &s)
  {
-	out<<"Student:\n\tName: "<<s.name<<"\n\tStudent ID: "<<s.studID<<"\n\tFaculty ID: "<<s.facultyID<<"\n\tMajor: "<<s.major<<"\n\tYear: "<<s.year<<"\n\tGPA: "<<s.gpa<<endl;
+	out<<"\nStudent:\n\tName: "<<s.name<<"\n\tStudent ID: "<<s.studID<<"\n\tFaculty ID: "<<s.facultyID<<"\n\tMajor: "<<s.major<<"\n\tYear: "<<s.year<<"\n\tGPA: "<<s.gpa<<endl;
 	return out;
  }
 

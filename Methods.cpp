@@ -353,8 +353,17 @@ void Methods::menuOptions()
 			}
 			else
 			{
+				cout<<"in remove advisee"<<endl;
 				Faculty tempF = facultyBST.find(studentInput.getFaculty());
-				tempF.removeAdvisee(input);
+				Faculty defaultFaculty = Faculty();
+				if(tempF ==defaultFaculty)
+				{
+
+				}
+				else
+				{
+					tempF.removeAdvisee(input);
+				}
 
 			}
 

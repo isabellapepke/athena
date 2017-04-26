@@ -27,14 +27,7 @@ http://stackoverflow.com/questions/23187376/reading-from-file-into-binary-tree-a
     ^^this will be used for all nodes for example, take our tree:
 
 
-![IMG_1135.JPG]({{site.baseurl}}/athena/IMG_1135.JPG)
-
-		       (Student 7)
-    
-    (Student 5)		       (Student 9)
-
-
- (null)  (Student 6)	(null)       (null)
+FOR TREE GO TO https://github.com/isabellapepke/athena/blob/master/IMG_1135.JPG
 
 (7-StudID,FacultyID,Major,Year,Name, GPA)--> is a student object but for visual purposes we will write just the id
 

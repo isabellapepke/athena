@@ -27,7 +27,7 @@ http://stackoverflow.com/questions/23187376/reading-from-file-into-binary-tree-a
     ^^this will be used for all nodes for example, take our tree:
 
 
-![IMG_1135.JPG]({{site.baseurl}}/IMG_1135.JPG)
+![athena/IMG_1135.JPG]({{site.baseurl}}/IMG_1135.JPG)
 
 		       (Student 7)
     

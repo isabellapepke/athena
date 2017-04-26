@@ -18,6 +18,10 @@ public:
 	void changeAdvisor(int facultyIDInput);//will need to do this on a student in the bst
 	int getID();
 	int getFaculty();
+	string getMajor();
+	string getYear();
+	string getName();
+	double getGPA();
 	friend bool operator< ( Student &s1,  Student &s2);
 	friend ostream& operator<< (ostream& out, Student &s);
 	friend bool operator== ( Student &s1,  Student &s2);

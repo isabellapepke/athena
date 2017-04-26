@@ -33,8 +33,11 @@ public:
 
 	TreeNode<T> *getSuccessor(TreeNode<T> *d);
 
-	void printToFile();
-	void printToFile(TreeNode<T> *curr);
+	void printSToFile();
+	void printSToFile(TreeNode<Student> *curr);
+	void printFToFile();
+	void printFToFile(TreeNode<Faculty> *curr);
+
 
 private:
 	TreeNode<T>* root;
@@ -403,31 +406,77 @@ void BST<T>::inOrder(TreeNode<T> *curr)
 
 
 template <typename T>
-void BST<T>::printToFile()
+void BST<T>::printSToFile()
 {
 	if(getMin()==0)
 		cout<<"Nothing in our records."<<endl;
 
 	else
-		printToFile(root);
+		printSToFile(root);
 }
 
 
 template <typename T>
-void BST<T>::printToFile(TreeNode<T> *curr) //Basically in order traversal 
+void BST<T>::printSToFile(TreeNode<Student> *curr) //Basically in order traversal 
 {
 	fstream outFile;
-	outFile.open("Output.txt");
-
-	if (curr != NULL)
+	outFile.open("Output.txt", std::ios_base::app);
+	if(outFile.fail())
 	{
-		printToFile(curr->left);
-		cout << "You are printing to the file Output.txt"<< "\n\n"<< endl;
-        outFile<< curr->value << endl;// " " << tree->count << ".";
-        printToFile(curr->right);
+		cout<<"Output file opening failed.\n";
 	}
-	outFile.close();
+	else
+	{	
+		cout<<"STUDENT: "<<endl;
+		if (curr != NULL)
+		{
+			//(studIDInput, facultyIDInput, majorInput, yearInput, nameInput, gpaInput)
+			outFile<<"( "<<curr->value.getID()<<", "<<curr->value.getFaculty()<<", "<<curr->value.getMajor()<<", "<<curr->value.getYear()<<", "<<curr->value.getName()<<", "<<curr->value.getGPA()<<") [";
+			printSToFile(curr->left);
+			outFile<<"] [";
+			printSToFile(curr->right);
+			outFile<<"]";
+		}
+
+		outFile.close();
+	}
 }
+
+template <typename T>
+void BST<T>::printFToFile()
+{
+	if(getMin()==0)
+		cout<<"Nothing in our records."<<endl;
+
+	else
+		printFToFile(root);
+}
+
+template <typename T>
+void BST<T>::printFToFile(TreeNode<Faculty> *curr) //Basically in order traversal 
+{
+	fstream outFile;
+	outFile.open("Output.txt", std::ios_base::app);
+	if(outFile.fail())
+	{
+		cout<<"Output file opening failed.\n";
+	}
+	else
+	{	
+		cout<<"FACULTY: "<<endl;
+		if (curr != NULL)
+		{
+			//	Faculty(string nameInput, string jobInput, string departmentInput, int facultyIDInput,)
+			outFile<<"( "<<curr->value.getName()<<", "<<curr->value.getJob()<<", "<<curr->value.getDpmt()<<", "<<curr->value.getID()<<") [";
+			printFToFile(curr->left);
+			outFile<<"] [";
+			printFToFile(curr->right);
+			outFile<<"]";
+		}
+		outFile.close();
+	}
+}
+
 
 
 

@@ -34,6 +34,18 @@ Faculty::~Faculty()
 {
 
 }
+/*string Faculty::printAdviseesListString()
+{
+	string list;
+	list+="(";
+    for(vector<int>::size_type i = 0; i != adviseesList.size(); i++) 
+	{
+		int plz = adviseesList[i];
+   		 list=list+" "+&(plz).str()+", ";//extra coma at end
+	}
+	list+=")";
+	return list;
+}*/
 
 void Faculty::removeAdvisee(int studIDInput)
 {
@@ -80,7 +92,7 @@ void Faculty::removeAdvisee(int studIDInput)
 
 void Faculty::addAdvisee(int studIDInput)
 {
-	cout<<"ADDING ADVISEE TO LIST"<<endl;
+	//cout<<"ADDING ADVISEE TO LIST"<<endl;
 	adviseesList.push_back(studIDInput);
 }
 
@@ -98,10 +110,12 @@ void Faculty::printAdviseesList()
 	{
     	cout << *iterator <<endl;
     }*/
+    cout<<"(";
     for(vector<int>::size_type i = 0; i != adviseesList.size(); i++) 
 	{
-   		cout <<adviseesList[i]<<endl;
+   		cout <<" "<<adviseesList[i]<<", ";//extra coma at end
 	}
+	cout<<")";
 }
 
 
@@ -127,12 +141,24 @@ vector<int> Faculty::getAdviseesList()
 	return adviseesList;
 
 }
+string Faculty::getName()
+{
+	return name;
+}
+string Faculty::getJob()
+{
+	return job;
+}
+string Faculty::getDpmt()
+{
+	return department;
+}
 
 void Faculty::printFaculty()
 {
 	cout<<"Faculty:\n\tName: "<<name<<"\n\tFaculty ID: "<<facultyID<<"\n\tDepartment: "<<department<<"\n\tJob: "<<job<<endl;
-	cout<<"\tList of advisees"<< endl;
-	printAdviseesList();  
+	//cout<<"\tList of advisees"<< endl;
+	//printAdviseesList();  
 }
 
 int Faculty::getID()

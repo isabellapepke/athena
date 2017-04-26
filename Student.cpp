@@ -20,6 +20,23 @@ Student::~Student()
 
 }
 
+string Student::getYear()
+{
+	return year;
+}
+string Student::getName()
+{
+	return name;
+}
+double Student::getGPA()
+{
+	return gpa;
+}
+
+string Student::getMajor()
+{
+	return major;
+}
 Student::Student(int studIDInput, int facultyIDInput, string majorInput, string yearInput, string nameInput, double gpaInput)//overloaded
 {
 

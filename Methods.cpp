@@ -89,22 +89,24 @@ void Methods::createFaculty()
 		//addAdvisee(idInput);
 		adviseesListInput.push_back(idInput);
 	}
-	cout<<"Done entering advisees to the Faculty person"<<endl;
+	//cout<<"Done entering advisees to the Faculty person"<<endl;
 
 	Faculty f(fNameInput, jobInput, departmentInput, facultyIDInput, adviseesListInput);
 	facultyBST.insert(f); //adding the faculty to the BST
 	Student defaultStudent = Student();
 	//vector<int>  f.getAdviseesList();
 	//iterate
-	for(vector<int>::size_type i = 0; i != f.getAdviseesList().size(); i++) 
+	/*for(vector<int>::size_type i = 0; i != f.getAdviseesList().size(); i++) 
         {
+        	cout<<"seg fault here??";
+
         	Student temp = studentBST.find(f.getAdviseesList()[i]);
 			if(temp==defaultStudent)
 			{
 				cout<<"We do not have records of that student. Please enter the following information: "<<endl;
 				createStudents();
 			}
-		}
+		}*/
 }
 
 void Methods::deleteStudent(int ID)
@@ -231,6 +233,8 @@ void Methods::menuOptions()
 			//generate a seg fault because there is no faculty info..otherwise works 
 			//add a if statement if no faculty in the 
 			} 
+			//push on stack
+
 		}
 
 
@@ -260,6 +264,7 @@ void Methods::menuOptions()
 				cout<<adviseeStud;
 			}*/
 
+
 		}
 
 
@@ -268,6 +273,8 @@ void Methods::menuOptions()
 		{
 			cout<<"You chose choice 7"<<endl;
 			createStudents(); 
+			//push on stack
+			copyToSStack(studentBST);
 
 		}
 
@@ -295,6 +302,8 @@ void Methods::menuOptions()
 		{
 			cout<<"You chose choice 9"<<endl;
 			createFaculty();
+			//push on stack
+			copyToFStack(facultyBST);
 		}
 
 
@@ -313,6 +322,8 @@ void Methods::menuOptions()
 			}
 			else
 				deleteFaculty(input);
+			//push on stack
+			copyToFStack(facultyBST);
 		}
 
 		else if(choice == 11)
@@ -358,6 +369,9 @@ void Methods::menuOptions()
 				Faculty tempF2 = facultyBST.find(newID);
 				tempF2.addAdvisee(idInput);
 			}
+			//push on stack
+			copyToFStack(facultyBST);
+			copyToSStack(studentBST);
 		}
 
 		else if(choice == 12)
@@ -390,19 +404,26 @@ void Methods::menuOptions()
 				}
 
 			}
+			//push on stack
+			copyToFStack(facultyBST);
+			copyToSStack(studentBST);
 
 		}
 
 		else if(choice == 13)
 		{
+			//13. Rollback
 			cout << "You chose choice 13" <<endl;
+
+			//studentBST = studentStack.pop();
+			//facultyBST = facultyStack.pop();
 		}
 
 		else if(choice == 14)
 		{
 			cout << "You chose the exit the program. GOODBYE"<<endl;
-			studentBST.printToFile();
-			facultyBST.printToFile();
+			studentBST.printSToFile();
+			facultyBST.printFToFile();
 			exit(0);
 		}
 		

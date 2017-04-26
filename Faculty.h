@@ -17,8 +17,12 @@ public:
 	void printFacultyAdvisees();
 	void addAdvisee(int studIDInput);
 	void printAdviseesList();
+	//string printAdviseesListString();
 	void removeAdvisee(int studIDInput);
 	int getID();
+	string getName();
+	string getJob();
+	string getDpmt();
 	vector<int> getAdviseesList();
 	friend bool operator<(Faculty &s1,  Faculty &s2);
 	friend ostream& operator<< (ostream& out, Faculty &s);
@@ -29,6 +33,5 @@ private:
 	string name, job, department;
 	int facultyID;
 	vector<int> adviseesList;
-	//list<int> adviseesList;
 };
 #endif

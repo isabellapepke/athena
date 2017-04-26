@@ -26,7 +26,7 @@ Did not have time to implement serialize properly but we can output properly thi
     (Student5)		       (Student 9)
 
 
-  (null)  (Student6)	(null)       (null)
+  (null)  (Student6)		(null)       (null)
 
   (7-StudID,FacultyID,Major,Year,Name, GPA) [ (5-StudID,FacultyID,Major,Year,Name, GPA) [null][6-StudID,FacultyID,Major,Year,Name, GPA] ] [(9-StudID,FacultyID,Major,Year,Name, GPA)[null][null]]
 	

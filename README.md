@@ -26,6 +26,9 @@ http://stackoverflow.com/questions/23187376/reading-from-file-into-binary-tree-a
 	(Student Information separated by a comma)[left of this node][right of this node] 
     ^^this will be used for all nodes for example, take our tree:
 
+
+![IMG_1135.JPG]({{site.baseurl}}/IMG_1135.JPG)
+
 		       (Student 7)
     
     (Student 5)		       (Student 9)

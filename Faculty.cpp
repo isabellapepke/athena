@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include "Faculty.h"
+#include <algorithm>
+#include <vector>
 
 using namespace std;
 Faculty::Faculty()
